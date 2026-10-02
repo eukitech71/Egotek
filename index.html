@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGOTEK - Ingeniería Peruana al Servicio del Agro | Tuberías y Mangueras HDPE</title>
+   <link rel="icon" type="image/png" href="Icono_ Egotek_Favicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#00873E', // Verde principal EGOTEK
+                            darkgreen: '#005928',
+                            lightgreen: '#E8F5E9',
+                            yellow: '#FF6D00', // Amarillo / Dorado EGOTEK
+                            darkyellow: '#D95D00',
+                            blue: '#0066FF',   // Azul resaltado técnico
+                            dark: '#1E293B',
+                            light: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Quicksand', 'sans-serif'],
+                        heading: ['Quicksand', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and animations */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00873E;
+            border-radius: 4px;
+        }
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(0,25,10,0.82) 0%, rgba(0,70,30,0.65) 50%, rgba(0,0,0,0.4) 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .pulse-whatsapp {
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+
+        /* ===== GLOBAL TYPOGRAPHY: QUICKSAND ===== */
+        html, body {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* ===== HERO PAGE-LOAD TEXT ANIMATIONS ===== */
+        .page-load-hero {
+            opacity: 1;
+        }
+        .page-load-hero .hero-text-content > * {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: heroTextIn .75s cubic-bezier(.2,.75,.2,1) forwards;
+        }
+        .page-load-hero .hero-text-content > *:nth-child(1) { animation-delay: .15s; }
+        .page-load-hero .hero-text-content > *:nth-child(2) { animation-delay: .30s; }
+        .page-load-hero .hero-text-content > *:nth-child(3) { animation-delay: .45s; }
+        .page-load-hero .hero-text-content > *:nth-child(4) { animation-delay: .60s; }
+        .page-load-hero #heroBgImage {
+            animation: heroImageIn 1.4s ease-out both;
+        }
+        @keyframes heroTextIn {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes heroImageIn {
+            from { opacity: .55; transform: scale(1.08); }
+            to { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* ===== FLOATING CONTACT CTA ===== */
+        .floating-contact-cta {
+            position: fixed;
+            left: 50%;
+            bottom: 22px;
+            transform: translateX(-50%);
+            z-index: 90;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: max-content;
+            max-width: calc(100vw - 24px);
+            font-family: 'Quicksand', sans-serif;
+            animation: ctaEntrance .8s cubic-bezier(.2,.8,.2,1) .9s both;
+        }
+        .floating-contact-cta .cta-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 46px;
+            padding: 0 16px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #059669, #16a34a);
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,.18);
+            transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+        }
+        .floating-contact-cta .cta-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 26px rgba(0,0,0,.22);
+            filter: brightness(1.05);
+        }
+        .floating-contact-cta .cta-message {
+            min-height: 46px;
+            display: flex;
+            align-items: center;
+            padding: 0 17px;
+            border-radius: 24px;
+            background: #fff;
+            color: #334155;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            box-shadow: 0 7px 20px rgba(15,23,42,.16);
+            border: 1px solid rgba(148,163,184,.22);
+            animation: ctaMessageFloat 3.2s ease-in-out 1.7s infinite;
+        }
+        .floating-contact-cta .cta-headset {
+            width: 50px;
+            height: 50px;
+            flex: 0 0 50px;
+            border: 0;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #063f76;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(15,23,42,.24);
+            transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+        }
+        .floating-contact-cta .cta-headset:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: #07518f;
+            box-shadow: 0 12px 26px rgba(15,23,42,.28);
+        }
+        .floating-contact-cta .cta-headset:focus-visible,
+        .floating-contact-cta .cta-whatsapp:focus-visible {
+            outline: 3px solid rgba(14,165,233,.45);
+            outline-offset: 3px;
+        }
+        @keyframes ctaEntrance {
+            from { opacity: 0; transform: translate(-50%, 24px) scale(.96); }
+            to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+        }
+        @keyframes ctaMessageFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+        @media (max-width: 640px) {
+            .floating-contact-cta {
+                bottom: 14px;
+                gap: 8px;
+                max-width: calc(100vw - 20px);
+            }
+            .floating-contact-cta .cta-whatsapp {
+                min-height: 44px;
+                padding: 0 13px;
+                font-size: 13px;
+                border-radius: 11px;
+            }
+            .floating-contact-cta .cta-message {
+                display: none;
+            }
+            .floating-contact-cta .cta-headset {
+                width: 46px;
+                height: 46px;
+                flex-basis: 46px;
+                font-size: 19px;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .page-load-hero .hero-text-content > *,
+            .page-load-hero #heroBgImage,
+            .floating-contact-cta,
+            .floating-contact-cta .cta-message {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* ===== UX / SCROLL ANIMATIONS ===== */
+        html { scroll-padding-top: 88px; }
+        *, *::before, *::after { box-sizing: border-box; }
+        body { overflow-x: hidden; }
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1);
+            will-change: opacity, transform;
+        }
+        .reveal-left { opacity: 0; transform: translateX(-35px); transition: opacity .8s ease, transform .8s ease; }
+        .reveal-right { opacity: 0; transform: translateX(35px); transition: opacity .8s ease, transform .8s ease; }
+        .reveal.is-visible, .reveal-left.is-visible, .reveal-right.is-visible {
+            opacity: 1; transform: translate(0,0);
+        }
+        .stagger > * { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+        .stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+        .stagger.is-visible > *:nth-child(1) { transition-delay: .05s; }
+        .stagger.is-visible > *:nth-child(2) { transition-delay: .12s; }
+        .stagger.is-visible > *:nth-child(3) { transition-delay: .19s; }
+        .stagger.is-visible > *:nth-child(4) { transition-delay: .26s; }
+        .stagger.is-visible > *:nth-child(5) { transition-delay: .33s; }
+        .stagger.is-visible > *:nth-child(6) { transition-delay: .40s; }
+        .product-card { cursor: pointer; }
+        .product-card:focus-visible { outline: 3px solid rgba(0,135,62,.35); outline-offset: 4px; }
+        .modal-backdrop { opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease; }
+        .modal-backdrop.open { opacity: 1; visibility: visible; }
+        .product-modal { transform: translateY(24px) scale(.97); opacity: 0; transition: transform .35s ease, opacity .35s ease; }
+        .modal-backdrop.open .product-modal { transform: translateY(0) scale(1); opacity: 1; }
+        .modal-gallery-main { aspect-ratio: 4/3; }
+        .modal-thumb { transition: transform .2s ease, border-color .2s ease, opacity .2s ease; }
+        .modal-thumb:hover { transform: translateY(-2px); }
+        .modal-thumb.active { border-color: #00873E; box-shadow: 0 0 0 2px rgba(0,135,62,.14); opacity: 1; }
+        .spec-chip { transition: transform .2s ease, box-shadow .2s ease; }
+        .spec-chip:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(15,23,42,.08); }
+        @media (max-width: 640px) {
+            /* Animación de flotación suave para íconos */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .animate-float-slow {
+            animation: floatSlow 3.5s ease-in-out infinite;
+        }
+            .modal-gallery-main { aspect-ratio: 1/1; }
+            .product-modal { max-height: 92vh; overflow-y: auto; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+            .reveal, .reveal-left, .reveal-right, .stagger > * { opacity: 1 !important; transform: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-brand-green selection:text-white">
+
+    <!-- HEADER & NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- BRAND LOGO (EASILY REPLACABLE) -->
+                <!-- REPLACEMENT NOTE: You can swap this logo SVG or image for your own PNG/SVG -->
+              <a href="#inicio" class="flex items-center gap-3 group">
+<div class="h-32 flex items-center">
+    <img src="logo-egotek.png.png" 
+         alt="EGOTEK" 
+         class="h-full w-auto object-contain transition-transform duration-300 hover:scale-105">
+</div></a>
+                <!-- DESKTOP NAVIGATION LINKS -->
+                <nav class="hidden md:flex items-center gap-8 font-medium text-slate-700">
+                    <a href="#inicio" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Inicio</a>
+                    <a href="#nosotros" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Nosotros</a>
+                    
+                    <!-- PRODUCTS DROPDOWN -->
+                    <div class="relative group">
+                        <a href="#productos" class="flex items-center gap-1 hover:text-brand-green transition-colors py-2 border-b-2 border-transparent group-hover:border-brand-green">
+                            Productos <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 p-2 z-50">
+                            <a href="#productos" onclick="switchProductTab('mangueras-hdpe')" class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-brand-lightgreen transition-colors">
+                                <i class="fa-solid fa-circle-dot text-brand-green"></i>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">Mangueras HDPE</p>
+                                    <p class="text-xs text-slate-500">Flexibles y de alta resistencia</p>
+                                </div>
+                            </a>
+                            <a href="#productos" onclick="switchProductTab('tuberias-hdpe')" class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-brand-lightgreen transition-colors">
+                                <i class="fa-solid fa-grip-lines text-brand-green"></i>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">Tuberías HDPE</p>
+                                    <p class="text-xs text-slate-500">Para gran conducción de agua</p>
+                                </div>
+                            </a>
+                            <a href="#productos" onclick="switchProductTab('mangueras-duplex')" class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-brand-lightgreen transition-colors">
+                                <i class="fa-solid fa-clone text-brand-green"></i>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">Mangueras Duplex</p>
+                                    <p class="text-xs text-slate-500">Doble capa para alto rendimiento</p>
+                                </div>
+                            </a>
+                            <a href="#productos" onclick="switchProductTab('accesorios-hdpe')" class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-brand-lightgreen transition-colors">
+                                <i class="fa-solid fa-screwdriver-wrench text-brand-green"></i>
+                                <div>
+                                    <p class="text-sm font-semibold text-slate-800">Accesorios HDPE</p>
+                                    <p class="text-xs text-slate-500">Conexiones y termofusión</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#proyectos" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Proyectos</a>
+                    <a href="#contacto" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Contacto</a>
+                </nav>
+                <!-- MOBILE MENU TOGGLE -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE DROPDOWN MENU -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#inicio" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Inicio</a>
+            <a href="#nosotros" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Nosotros</a>
+            <div>
+                <p class="py-2 text-xs font-bold uppercase tracking-wider text-slate-400">Productos</p>
+                <a href="#productos" onclick="switchProductTab('mangueras-hdpe'); closeMobileMenu()" class="block py-1.5 pl-4 text-slate-600">• Mangueras HDPE</a>
+                <a href="#productos" onclick="switchProductTab('tuberias-hdpe'); closeMobileMenu()" class="block py-1.5 pl-4 text-slate-600">• Tuberías HDPE</a>
+                <a href="#productos" onclick="switchProductTab('mangueras-duplex'); closeMobileMenu()" class="block py-1.5 pl-4 text-slate-600">• Mangueras Duplex</a>
+                <a href="#productos" onclick="switchProductTab('accesorios-hdpe'); closeMobileMenu()" class="block py-1.5 pl-4 text-slate-600">• Accesorios HDPE</a>
+            </div>
+            <a href="#proyectos" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Proyectos</a>
+            <a href="#contacto" class="block py-2 text-slate-700 font-medium hover:text-brand-green">Contacto</a>
+            <a href="https://wa.me/51955590217?text=Hola%20EGOTEK,%20deseo%20una%20cotizaci%C3%B3n" target="_blank" class="w-full bg-emerald-600 text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 mt-4">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Cotizar por WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (PORTADA) -->
+    <section id="inicio" class="page-load-hero relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900">
+        <!-- REPLACEMENT NOTE: Hero Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1920&auto=format&fit=crop" 
+                 alt="Conducción de agua agrícola EGOTEK" 
+                 class="w-full h-full object-cover object-center scale-105 transition-transform duration-10000" id="heroBgImage">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- HERO TEXT CONTENT -->
+                <div class="hero-text-content lg:col-span-7 space-y-6 text-white text-center lg:text-left">
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight leading-tight">
+                        SOLUCIONES PARA LA <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-200 to-yellow-300">
+                            CONDUCCIÓN DE AGUA
+                        </span>
+                    </h1>
+
+                    <p class="text-base sm:text-xl text-slate-200 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                        Tuberías HDPE, Mangueras y Accesorios para la agricultura, construcción e industria. Máxima durabilidad, resistencia a alta presión y tecnología de vanguardia.
+                    </p>
+
+<!-- HERO CTAS -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 pt-4">
+    <a href="https://wa.me/51955590217?text=Hola%20EGOTEK,%20vengo%20desde%20la%20web%20y%20deseo%20cotizar" target="_blank" rel="noopener" 
+       class="w-full sm:w-auto bg-emerald-600/70 hover:bg-emerald-500 border border-white/30 text-white font-bold px-8 py-4 rounded-xl flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-base backdrop-blur-sm">
+        <i class="fa-brands fa-whatsapp text-xl leading-none"></i>
+        <span>Cotizar por WhatsApp</span>
+    </a>
+
+    <a href="#productos" 
+       class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-8 py-4 rounded-xl flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-base backdrop-blur-sm">
+        <span>Ver productos</span>
+        <i class="fa-solid fa-arrow-down text-sm"></i>
+    </a>
+</div>
+                    <!-- METRICS BADGES -->
+                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-white/10 text-center lg:text-left">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold font-heading bg-gradient-to-b from-[#FFA040] to-[#FF6D00] bg-clip-text text-transparent inline-block">100%</p>
+                            <p class="text-xs text-slate-300 font-medium">Material Virgen PE100</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold font-heading bg-gradient-to-b from-[#FFA040] to-[#FF6D00] bg-clip-text text-transparent inline-block">PN8 - PN20</p>
+                            <p class="text-xs text-slate-300 font-medium">Rangos de Presión</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold font-heading bg-gradient-to-b from-[#FFA040] to-[#FF6D00] bg-clip-text text-transparent inline-block">Garantía</p>
+                            <p class="text-xs text-slate-300 font-medium">Resistencia UV y Agro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HERO FLOATING CARD / VISUAL SHOWCASE -->
+                <div class="lg:col-span-5 relative hidden lg:block">
+                    <div class="relative mx-auto max-w-sm">
+                        <!-- Decorative glow -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-yellow-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+                        
+                        <!-- Floating Card -->
+                        <div class="relative bg-slate-900/90 border border-slate-700/80 p-6 rounded-3xl shadow-2xl backdrop-blur-xl text-white">
+                            <!-- REPLACEMENT NOTE: Pipeline Showcase Image -->
+                            <div class="overflow-hidden rounded-2xl mb-4 h-56 bg-slate-800 relative">
+                                <img src="Sistema_Riego_Tecnificado.jpg" 
+                                     alt="Tuberías HDPE de Alta Densidad" 
+                                     class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                    Norma Técnica ISO
+                                </span>
+                            </div>
+                            <div class="space-y-2">
+                                <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Líderes en el Perú</span>
+                                <h3 class="text-xl font-bold font-heading">Sistemas de Riego Tecnificado</h3>
+                                <p class="text-xs text-slate-300 leading-relaxed">
+                                    Diseño e ingeniería para conducción de agua en proyectos de gran envergadura.
+                                </p>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400 font-semibold">
+                                <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Envíos a todo el Perú</span>
+                                <span class="flex items-center gap-1"><i class="fa-solid fa-shield-halved"></i> Calidad EGOTEK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: NUESTROS PRODUCTOS -->
+    <section id="productos" class="reveal py-20 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- SECTION HEADER -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block px-4 py-1.5 rounded-md bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider mb-3 shadow-sm">
+                    Nuestros Productos
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 tracking-tight">
+                    Mangueras, tuberías y accesorios HDPE
+                </h2>
+                <p class="mt-3 text-lg text-slate-600">
+                    Encuentra la solución ideal para cada necesidad de tu proyecto agrícola o industrial.
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-yellow-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- PRODUCT CARDS GRID (MATCHING CAPTURE 2 EXACTLY) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 stagger">
+                
+                <!-- CARD 1: MANGUERAS HDPE -->
+                <div class="product-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" role="button" tabindex="0" onclick="openProductModal('mangueras-hdpe')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('mangueras-hdpe')}">
+                    <div>
+                        <!-- REPLACEMENT NOTE: Manguera HDPE Image -->
+                        <div class="h-48 bg-slate-50 rounded-xl overflow-hidden mb-5 flex items-center justify-center p-4 group-hover:bg-emerald-50/50 transition-colors">
+                            <img src="Manguera_HDPE.png" 
+                                 alt="Mangueras HDPE EGOTEK" 
+                                 class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors">
+                            Mangueras HDPE
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                            Flexibles, resistentes y de larga duración. Ideales para maniobra en campo.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <button onclick="event.stopPropagation(); openProductModal('mangueras-hdpe')" 
+                                class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-2.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm">
+                            <span>Ver producto</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD 2: MANGUERAS DUPLEX -->
+                <div class="product-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" role="button" tabindex="0" onclick="openProductModal('mangueras-duplex')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('mangueras-duplex')}">
+                    <div>
+                        <!-- REPLACEMENT NOTE: Manguera Duplex Image -->
+                        <div class="h-48 bg-slate-50 rounded-xl overflow-hidden mb-5 flex items-center justify-center p-4 group-hover:bg-emerald-50/50 transition-colors">
+                            <img src="Manguera_Duplex.png" 
+                                 alt="Mangueras Duplex EGOTEK" 
+                                 class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors">
+                            Mangueras Duplex
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                            Doble capa y alta resistencia para hogar, parcelas o riego continuo.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <button onclick="event.stopPropagation(); openProductModal('mangueras-duplex')" 
+                                class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-2.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm">
+                            <span>Ver producto</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD 3: TUBERÍAS HDPE -->
+                <div class="product-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" role="button" tabindex="0" onclick="openProductModal('tuberias-hdpe')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('tuberias-hdpe')}">
+                    <div>
+                        <!-- REPLACEMENT NOTE: Tuberías HDPE Image -->
+                        <div class="h-48 bg-slate-50 rounded-xl overflow-hidden mb-5 flex items-center justify-center p-4 group-hover:bg-emerald-50/50 transition-colors">
+                            <img src="Tubería_HDPE.png" 
+                                 alt="Tuberías HDPE EGOTEK" 
+                                 class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors">
+                            Tuberías HDPE
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                            Ideales para la conducción de agua y proyectos hidráulicos de alta demanda.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <button onclick="event.stopPropagation(); openProductModal('tuberias-hdpe')" 
+                                class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-2.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm">
+                            <span>Ver producto</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD 4: ACCESORIOS HDPE -->
+                <div class="product-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" role="button" tabindex="0" onclick="openProductModal('accesorios-hdpe')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('accesorios-hdpe')}">
+                    <div>
+                        <!-- REPLACEMENT NOTE: Accesorios HDPE Image -->
+                        <div class="h-48 bg-slate-50 rounded-xl overflow-hidden mb-5 flex items-center justify-center p-4 group-hover:bg-emerald-50/50 transition-colors">
+                            <img src="Accesorios_HDPE.png" 
+                                 alt="Accesorios HDPE EGOTEK" 
+                                 class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors">
+                            Accesorios HDPE
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
+                            Conexiones seguras, codos, tees, acoples y válvulas de alto rendimiento.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <button onclick="event.stopPropagation(); openProductModal('accesorios-hdpe')" 
+                                class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-2.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm">
+                            <span>Ver producto</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: TECHNICAL DETAILS & SPECS TABLE SECTION (MATCHING CAPTURE 4 & 5) -->
+    <section id="especificaciones" class="reveal py-16 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- TAB NAVIGATION BUTTONS -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10">
+                <button onclick="switchProductTab('mangueras-hdpe')" id="tab-mangueras-hdpe" 
+                        class="tab-btn px-5 py-3 rounded-xl font-semibold text-sm sm:text-base transition-all bg-emerald-700 text-white shadow-md">
+                    <i class="fa-solid fa-circle-dot mr-2"></i> Mangueras HDPE
+                </button>
+                <button onclick="switchProductTab('tuberias-hdpe')" id="tab-tuberias-hdpe" 
+                        class="tab-btn px-5 py-3 rounded-xl font-semibold text-sm sm:text-base transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">
+                    <i class="fa-solid fa-grip-lines mr-2"></i> Tuberías HDPE
+                </button>
+                <button onclick="switchProductTab('mangueras-duplex')" id="tab-mangueras-duplex" 
+                        class="tab-btn px-5 py-3 rounded-xl font-semibold text-sm sm:text-base transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">
+                    <i class="fa-solid fa-clone mr-2"></i> Mangueras Duplex
+                </button>
+                <button onclick="switchProductTab('accesorios-hdpe')" id="tab-accesorios-hdpe" 
+                        class="tab-btn px-5 py-3 rounded-xl font-semibold text-sm sm:text-base transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">
+                    <i class="fa-solid fa-screwdriver-wrench mr-2"></i> Accesorios HDPE
+                </button>
+            </div>
+
+            <!-- TAB CONTENT CONTAINER -->
+            <div class="bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
+                
+                <!-- TOP HEADER BANNER INSIDE TAB -->
+                <div class="relative p-8 lg:p-12 bg-gradient-to-r from-emerald-900 via-slate-900 to-slate-900 overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+                        <i class="fa-solid fa-faucet-drip text-[240px] text-white"></i>
+                    </div>
+
+                    <div class="relative z-10 max-w-3xl">
+                        <h3 id="tabTitle" class="text-3xl sm:text-4xl font-extrabold font-heading text-white mb-2">
+                            Manguera <span class="text-brand-green">HDPE</span>
+                        </h3>
+                        <p id="tabSubtitle" class="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+                            Resistencia, flexibilidad y durabilidad para tus proyectos. Soluciones eficientes para la agricultura, construcción, industriales y más. Llevamos agua donde más la necesitas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FEATURES & APPLICATIONS BADGES (MATCHING CAPTURE 4) -->
+                <div class="p-6 lg:p-8 bg-slate-800/60 border-t border-b border-slate-700/60">
+                    <!-- 4 FEATURE ICONS -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 text-center">
+                        <div class="flex flex-col items-center p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+                            <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl mb-2">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <p class="font-bold text-sm text-white">Alta resistencia</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Soporta presión y condiciones exigentes.</p>
+                        </div>
+
+                        <div class="flex flex-col items-center p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+                            <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl mb-2">
+                                <i class="fa-solid fa-arrows-up-down-left-right"></i>
+                            </div>
+                            <p class="font-bold text-sm text-white">Ligera y flexible</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Fácil de transportar e instalar en campo.</p>
+                        </div>
+
+                        <div class="flex flex-col items-center p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+                            <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl mb-2">
+                                <i class="fa-solid fa-sun"></i>
+                            </div>
+                            <p class="font-bold text-sm text-white">Resistente a Rayos UV</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Protección integral contra intemperie.</p>
+                        </div>
+
+                        <div class="flex flex-col items-center p-3 rounded-xl bg-slate-800/80 border border-slate-700">
+                            <div class="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl mb-2">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                            </div>
+                            <p class="font-bold text-sm text-white">Larga vida útil</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Material 100% virgen de alta calidad.</p>
+                        </div>
+                    </div>
+
+<!-- APPLICATIONS GALLERY THUMBNAILS (MATCHING CAPTURE 4) -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+  
+  <!-- 1. Riego agrícola -->
+  <div class="group relative rounded-xl overflow-hidden h-28 bg-slate-900 border border-slate-700">
+    <img src="riego_agrícola.jpg" alt="Riego agrícola" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex items-end p-2.5">
+      <span class="text-xs font-bold text-white drop-shadow-md">Riego agrícola</span>
+    </div>
+  </div>
+
+  <!-- 2. Conducción de agua -->
+  <div class="group relative rounded-xl overflow-hidden h-28 bg-slate-900 border border-slate-700">
+    <img src="conducción_de_agua.jpg" alt="Conducción de agua" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex items-end p-2.5">
+      <span class="text-xs font-bold text-white drop-shadow-md">Conducción de agua</span>
+    </div>
+  </div>
+
+  <!-- 3. Aplicaciones industriales -->
+  <div class="group relative rounded-xl overflow-hidden h-28 bg-slate-900 border border-slate-700">
+    <img src="aplicaciones_industriales.webp" alt="Aplicaciones industriales" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex items-end p-2.5">
+      <span class="text-xs font-bold text-white drop-shadow-md">Aplicaciones industriales</span>
+    </div>
+  </div>
+
+  <!-- 4. Jardinería y paisajismo -->
+  <div class="group relative rounded-xl overflow-hidden h-28 bg-slate-900 border border-slate-700">
+    <img src="Jardinería_paisajismo.jpg" alt="Jardinería y paisajismo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex items-end p-2.5">
+      <span class="text-xs font-bold text-white drop-shadow-md">Jardinería y paisajismo</span>
+    </div>
+  </div>
+
+</div>
+                </div>
+
+                <!-- INTERACTIVE SPECIFICATIONS TABLE (EXACT MATCH CAPTURE 5) -->
+                <div class="p-6 lg:p-8 bg-slate-100 text-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-xl font-bold font-heading text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-table-list text-brand-green"></i> Tabla de Especificaciones Técnicas
+                        </h4>
+                        <span class="text-xs bg-brand-lightgreen text-brand-darkgreen font-bold px-3 py-1 rounded-full">
+                            Estándar Nacional
+                        </span>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-2xl shadow-lg border border-slate-200">
+                        <table class="w-full text-sm text-left border-collapse">
+                            <thead>
+                                <tr class="bg-brand-blue text-white font-heading text-xs uppercase tracking-wider">
+                                    <th class="py-4 px-6 font-bold">Diámetro (nominal)</th>
+                                    <th class="py-4 px-6 font-bold">Presión</th>
+                                    <th class="py-4 px-6 font-bold">Material</th>
+                                    <th class="py-4 px-6 font-bold">Color</th>
+                                    <th class="py-4 px-6 font-bold">Presentación</th>
+                                    <th class="py-4 px-6 text-center">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 bg-white" id="specsTableBody">
+                                <!-- DATA ROWS GENERATED VIA JAVASCRIPT FOR ACCURACY -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- CONTENEDOR AISLADO DE TABLA INTERACTIVA (Sin alterar el layout global) -->
+<div class="hdpe-interactive-wrapper">
+  
+  <!-- BUSCADOR Y CONTROLES -->
+  <div class="hdpe-controls">
+    <div class="hdpe-search-group">
+      <input type="text" id="hdpeSearch" placeholder="🔍 Buscar por diámetro (ej. 110, 4&quot;), clase o bar...">
+      <select id="hdpeFilter">
+        <option value="all">Todas las Clases / SDR</option>
+        <option value="33">SDR 33 (S16) - PE80: 4 bar / PE100: 5 bar</option>
+        <option value="26">SDR 26 (S12.5) - PE80: 5 bar / PE100: 6 bar</option>
+        <option value="21">SDR 21 (S10) - PE80: 6 bar / PE100: 8 bar</option>
+        <option value="17">SDR 17 (S8) - PE80: 8 bar / PE100: 10 bar</option>
+        <option value="13.6">SDR 13.6 (S6.3) - PE80: 10 bar / PE100: 12.5 bar</option>
+        <option value="11">SDR 11 (S5) - PE80: 12.5 bar / PE100: 16 bar</option>
+        <option value="9">SDR 9 (S4) - PE80: 16 bar / PE100: 20 bar</option>
+        <option value="7.4">SDR 7.4 (S3.2) - PE80: 20 bar / PE100: 25 bar</option>
+      </select>
+    </div>
+    <div class="hdpe-counter" id="hdpeCounter">Mostrando 23 registros</div>
+  </div>
+
+  <!-- CONTENEDOR DE SCROLL INTERNO PARA LA TABLA -->
+  <div class="hdpe-table-scroll">
+    <table id="hdpeInteractiveTable">
+      <thead>
+        <tr class="h-sdr">
+          <th colspan="2">Relación estándar de dimensiones (SDR)</th>
+          <th colspan="2" data-sdr="33">SDR 33 (S16)</th>
+          <th colspan="2" data-sdr="26">SDR 26 (S12.5)</th>
+          <th colspan="2" data-sdr="21">SDR 21 (S10)</th>
+          <th colspan="2" data-sdr="17">SDR 17 (S8)</th>
+          <th colspan="2" data-sdr="13.6">SDR 13.6 (S6.3)</th>
+          <th colspan="2" data-sdr="11">SDR 11 (S5)</th>
+          <th colspan="2" data-sdr="9">SDR 9 (S4)</th>
+          <th colspan="2" data-sdr="7.4">SDR 7.4 (S3.2)</th>
+        </tr>
+        <tr class="h-pn">
+          <th colspan="2">Presión Nominal</th>
+          <th colspan="2" data-sdr="33">PE-80: 4.0 bar<br>PE-100: 5.0 bar</th>
+          <th colspan="2" data-sdr="26">PE-80: 5.0 bar<br>PE-100: 6.0 bar</th>
+          <th colspan="2" data-sdr="21">PE-80: 6.0 bar<br>PE-100: 8.0 bar</th>
+          <th colspan="2" data-sdr="17">PE-80: 8.0 bar<br>PE-100: 10.0 bar</th>
+          <th colspan="2" data-sdr="13.6">PE-80: 10.0 bar<br>PE-100: 12.5 bar</th>
+          <th colspan="2" data-sdr="11">PE-80: 12.5 bar<br>PE-100: 16.0 bar</th>
+          <th colspan="2" data-sdr="9">PE-80: 16.0 bar<br>PE-100: 20.0 bar</th>
+          <th colspan="2" data-sdr="7.4">PE-80: 20.0 bar<br>PE-100: 25.0 bar</th>
+        </tr>
+        <tr class="h-sub">
+          <th>DN<br>(mm)</th>
+          <th>DN Equiv.<br>(pulg)</th>
+          <th data-sdr="33">Esp. mín.<br>(mm)</th><th data-sdr="33">Peso prom.<br>Kg/ml</th>
+          <th data-sdr="26">Esp. mín.<br>(mm)</th><th data-sdr="26">Peso prom.<br>Kg/ml</th>
+          <th data-sdr="21">Esp. mín.<br>(mm)</th><th data-sdr="21">Peso prom.<br>Kg/ml</th>
+          <th data-sdr="17">Esp. mín.<br>(mm)</th><th data-sdr="17">Peso prom.<br>Kg/ml</th>
+          <th data-sdr="13.6">Esp. mín.<br>(mm)</th><th data-sdr="13.6">Peso prom.<br>Kg/ml</th>
+          <th data-sdr="11">Esp. mín.<br>(mm)</th><th data-sdr="11">Peso prom.<br>Kg/ml</th>
+          <th data-sdr="9">Esp. mín.<br>(mm)</th><th data-sdr="9">Peso prom.<br>Kg/ml</th>
+          <th data-sdr="7.4">Esp. mín.<br>(mm)</th><th data-sdr="7.4">Peso prom.<br>Kg/ml</th>
+        </tr>
+      </thead>
+      <tbody id="hdpeTableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  /* Encapsulado para evitar conflictos de estilos con el resto de la web */
+  .hdpe-interactive-wrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 15px 0;
+  }
+
+  .hdpe-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    background: #f1f5f9;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  .hdpe-search-group {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .hdpe-search-group input, 
+  .hdpe-search-group select {
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    background: #fff;
+  }
+
+  .hdpe-search-group input {
+    flex: 1;
+  }
+
+  .hdpe-counter {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  /* Scroll propio y aislado para que la tabla no deforme la página */
+  .hdpe-table-scroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    background: #ffffff;
+  }
+
+  #hdpeInteractiveTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  #hdpeInteractiveTable th, 
+  #hdpeInteractiveTable td {
+    padding: 6px 8px;
+    border: 1px solid #d0d7de;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+  }
+
+  #hdpeInteractiveTable tr.h-sdr th { background-color: #0d2847; color: #fff; }
+  #hdpeInteractiveTable tr.h-pn th { background-color: #e2e8f0; color: #1e293b; font-weight: 600; }
+  #hdpeInteractiveTable tr.h-sub th { background-color: #1a3d68; color: #fff; font-size: 0.75rem; }
+
+  #hdpeInteractiveTable td.f-dn, 
+  #hdpeInteractiveTable td.f-pulg {
+    font-weight: bold;
+    background-color: #f8fafc;
+  }
+
+  /* HOVER CRUZADO CON OPACIDAD MÍNIMA */
+  #hdpeInteractiveTable tr.hdpe-row-hover > td {
+    background-color: rgba(13, 40, 71, 0.07) !important;
+  }
+
+  #hdpeInteractiveTable td.hdpe-col-hover {
+    background-color: rgba(13, 40, 71, 0.07) !important;
+  }
+
+  #hdpeInteractiveTable td.hdpe-cell-active {
+    background-color: rgba(13, 40, 71, 0.18) !important;
+    font-weight: bold;
+  }
+
+  .hdpe-empty { color: #a0aec0; }
+</style>
+
+<script>
+(function() {
+  const dataTable = [
+    { dn: "20", pulg: "1/2", s33: ["-","-"], s26: ["-","-"], s21: ["-","-"], s17: ["-","-"], s13_6: ["-","-"], s11: ["2.0","0.12"], s9: ["2.3","0.13"], s7_4: ["3.0","0.16"] },
+    { dn: "25", pulg: "3/4", s33: ["-","-"], s26: ["-","-"], s21: ["-","-"], s17: ["-","-"], s13_6: ["2.0","0.148"], s11: ["2.3","0.17"], s9: ["3.0","0.21"], s7_4: ["3.5","0.24"] },
+    { dn: "32", pulg: "1", s33: ["-","-"], s26: ["-","-"], s21: ["-","-"], s17: ["2.0","0.2"], s13_6: ["2.4","0.23"], s11: ["3.0","0.28"], s9: ["3.6","0.33"], s7_4: ["4.4","0.39"] },
+    { dn: "40", pulg: "1-1/4", s33: ["-","-"], s26: ["-","-"], s21: ["2.0","0.245"], s17: ["2.4","0.29"], s13_6: ["3.0","0.36"], s11: ["3.7","0.43"], s9: ["4.5","0.51"], s7_4: ["5.5","0.61"] },
+    { dn: "50", pulg: "1-1/2", s33: ["-","-"], s26: ["2.0","0.31"], s21: ["2.4","0.367"], s17: ["3.0","0.50"], s13_6: ["3.7","0.55"], s11: ["4.6","0.67"], s9: ["5.6","0.79"], s7_4: ["6.9","0.94"] },
+    { dn: "63", pulg: "2.00", s33: ["-","-"], s26: ["2.5","0.49"], s21: ["3.0","0.570"], s17: ["3.8","0.72"], s13_6: ["4.7","0.88"], s11: ["5.8","1.06"], s9: ["8.1","1.27"], s7_4: ["8.6","1.48"] },
+    { dn: "75", pulg: "2-1/2", s33: ["-","-"], s26: ["2.9","0.67"], s21: ["3.6","0.819"], s17: ["4.5","1.02"], s13_6: ["5.6","1.24"], s11: ["6.8","1.48"], s9: ["8.4","1.78"], s7_4: ["10.3","2.12"] },
+    { dn: "90", pulg: "3", s33: ["-","-"], s26: ["3.5","0.97"], s21: ["4.3","1.170"], s17: ["5.4","1.47"], s13_6: ["6.7","1.78"], s11: ["8.2","2.14"], s9: ["10.1","2.57"], s7_4: ["12.3","3.03"] },
+    { dn: "110", pulg: "4", s33: ["-","-"], s26: ["4.2","1.41"], s21: ["5.3","1.78"], s17: ["6.6","2.18"], s13_6: ["8.1","2.64"], s11: ["10.0","3.18"], s9: ["12.3","3.82"], s7_4: ["15.1","4.54"] },
+    { dn: "160", pulg: "6", s33: ["-","-"], s26: ["6.2","3.06"], s21: ["7.7","3.74"], s17: ["9.5","4.56"], s13_6: ["11.8","5.56"], s11: ["14.6","6.74"], s9: ["17.9","8.05"], s7_4: ["21.9","9.56"] },
+    { dn: "200", pulg: "8", s33: ["-","-"], s26: ["7.7","4.73"], s21: ["9.6","5.83"], s17: ["11.9","7.12"], s13_6: ["14.7","8.65"], s11: ["18.2","10.50"], s9: ["22.4","12.60"], s7_4: ["27.4","14.94"] },
+    { dn: "250", pulg: "10", s33: ["-","-"], s26: ["9.6","7.37"], s21: ["11.9","9.02"], s17: ["14.8","11.06"], s13_6: ["18.4","13.54"], s11: ["22.7","16.35"], s9: ["27.9","19.60"], s7_4: ["34.2","23.32"] },
+    { dn: "280", pulg: "11", s33: ["-","-"], s26: ["10.7","9.19"], s21: ["13.4","11.38"], s17: ["16.6","13.90"], s13_6: ["20.6","16.96"], s11: ["25.4","20.50"], s9: ["31.3","24.64"], s7_4: ["38.3","29.24"] },
+    { dn: "315", pulg: "12", s33: ["9.7","9.34"], s26: ["12.1","11.70"], s21: ["15.0","14.30"], s17: ["18.7","17.60"], s13_6: ["23.2","21.50"], s11: ["28.6","25.95"], s9: ["35.2","31.16"], s7_4: ["43.1","37.01"] },
+    { dn: "355", pulg: "14", s33: ["10.9","11.81"], s26: ["13.6","14.79"], s21: ["16.9","18.16"], s17: ["21.1","22.40"], s13_6: ["26.1","27.25"], s11: ["32.2","32.94"], s9: ["39.7","39.58"], s7_4: ["48.5","46.93"] },
+    { dn: "400", pulg: "16", s33: ["12.3","15.01"], s26: ["15.3","18.75"], s21: ["19.1","23.16"], s17: ["23.7","28.31"], s13_6: ["29.4","34.56"], s11: ["36.3","41.82"], s9: ["44.7","50.21"], s7_4: ["54.7","59.60"] },
+    { dn: "450", pulg: "18", s33: ["13.8","18.94"], s26: ["17.2","23.71"], s21: ["21.5","29.28"], s17: ["26.7","35.87"], s13_6: ["33.1","43.78"], s11: ["40.9","52.96"], s9: ["50.3","63.57"], s7_4: ["61.5","74.55"] },
+    { dn: "500", pulg: "20", s33: ["15.3","23.68"], s26: ["19.1","29.25"], s21: ["23.9","36.13"], s17: ["29.7","44.32"], s13_6: ["36.8","54.02"], s11: ["45.4","65.34"], s9: ["55.8","78.44"], s7_4: ["-","-"] },
+    { dn: "560", pulg: "22", s33: ["17.2","29.80"], s26: ["21.4","36.67"], s21: ["26.7","45.22"], s17: ["33.2","55.52"], s13_6: ["41.2","67.77"], s11: ["50.8","81.86"], s9: ["62.5","98.38"], s7_4: ["-","-"] },
+    { dn: "630", pulg: "24", s33: ["19.3","37.60"], s26: ["24.1","46.46"], s21: ["30.0","57.12"], s17: ["37.4","70.32"], s13_6: ["46.3","85.66"], s11: ["57.2","103.97"], s9: ["70.3","124.46"], s7_4: ["-","-"] },
+    { dn: "710", pulg: "28", s33: ["21.8","47.83"], s26: ["27.2","59.14"], s21: ["33.8","72.89"], s17: ["42.1","89.32"], s13_6: ["52.2","108.93"], s11: ["64.5","131.91"], s9: ["79.3","158.21"], s7_4: ["-","-"] },
+    { dn: "800", pulg: "32", s33: ["24.5","60.55"], s26: ["30.6","74.94"], s21: ["38.1","92.30"], s17: ["47.4","113.29"], s13_6: ["58.8","138.24"], s11: ["72.6","167.29"], s9: ["89.3","200.73"], s7_4: ["-","-"] },
+    { dn: "900", pulg: "36", s33: ["27.6","76.70"], s26: ["34.4","94.75"], s21: ["42.9","116.88"], s17: ["53.3","143.29"], s13_6: ["66.2","175.06"], s11: ["81.7","211.75"], s9: ["-","-"], s7_4: ["-","-"] },
+    { dn: "1000", pulg: "40", s33: ["30.6","94.46"], s26: ["38.2","116.90"], s21: ["47.7","144.36"], s17: ["59.3","177.09"], s13_6: ["72.5","213.25"], s11: ["90.2","259.91"], s9: ["-","-"], s7_4: ["-","-"] }
+  ];
+
+  const sdrKeys = ["33", "26", "21", "17", "13.6", "11", "9", "7.4"];
+  const sdrProp = { "33":"s33", "26":"s26", "21":"s21", "17":"s17", "13.6":"s13_6", "11":"s11", "9":"s9", "7.4":"s7_4" };
+
+  const tbody = document.getElementById("hdpeTableBody");
+  const input = document.getElementById("hdpeSearch");
+  const select = document.getElementById("hdpeFilter");
+  const counter = document.getElementById("hdpeCounter");
+  const table = document.getElementById("hdpeInteractiveTable");
+
+  function render() {
+    tbody.innerHTML = "";
+    dataTable.forEach(row => {
+      const tr = document.createElement("tr");
+      tr.dataset.dn = row.dn;
+      tr.dataset.pulg = row.pulg;
+
+      let html = `<td class="f-dn">${row.dn}</td><td class="f-pulg">${row.pulg}</td>`;
+      sdrKeys.forEach(s => {
+        const [e, p] = row[sdrProp[s]];
+        html += `<td data-sdr="${s}" class="${e==='-'?'hdpe-empty':''}">${e}</td>`;
+        html += `<td data-sdr="${s}" class="${p==='-'?'hdpe-empty':''}">${p}</td>`;
+      });
+      tr.innerHTML = html;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function filter() {
+    const q = input.value.toLowerCase().trim();
+    const sel = select.value;
+    let count = 0;
+
+    tbody.querySelectorAll("tr").forEach(tr => {
+      const dn = tr.dataset.dn.toLowerCase();
+      const pulg = tr.dataset.pulg.toLowerCase();
+      const txt = tr.textContent.toLowerCase();
+      const match = !q || dn.includes(q) || pulg.includes(q) || txt.includes(q);
+
+      tr.style.display = match ? "" : "none";
+      if (match) count++;
+    });
+
+    table.querySelectorAll("[data-sdr]").forEach(el => {
+      const s = el.dataset.sdr;
+      el.style.display = (sel === "all" || s === sel) ? "" : "none";
+    });
+
+    counter.textContent = `Mostrando ${count} de ${dataTable.length} registros`;
+  }
+
+  function clearHover() {
+    table.querySelectorAll(".hdpe-row-hover").forEach(e => e.classList.remove("hdpe-row-hover"));
+    table.querySelectorAll(".hdpe-col-hover").forEach(e => e.classList.remove("hdpe-col-hover"));
+    table.querySelectorAll(".hdpe-cell-active").forEach(e => e.classList.remove("hdpe-cell-active"));
+  }
+
+  table.addEventListener("mouseover", e => {
+    const td = e.target.closest("td, th");
+    if (!td) return;
+    const tr = td.parentElement;
+    const idx = Array.from(tr.children).indexOf(td);
+
+    clearHover();
+    tr.classList.add("hdpe-row-hover");
+
+    table.querySelectorAll("tr").forEach(r => {
+      if (r.children[idx]) r.children[idx].classList.add("hdpe-col-hover");
+    });
+
+    if (td.tagName === "TD") td.classList.add("hdpe-cell-active");
+  });
+
+  table.addEventListener("mouseleave", clearHover);
+  input.addEventListener("input", filter);
+  select.addEventListener("change", filter);
+
+  render();
+})();
+</script>
+
+    <!-- SECTION 4: ¿POR QUÉ ELEGIRNOS? (MATCHING CAPTURE 3) -->
+    <section class="reveal py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- LEFT CONTENT & 3 FEATURES -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 tracking-tight">
+                            ¿Por qué elegirnos?
+                        </h2>
+                        <p class="text-lg text-slate-600 mt-2">
+                            Calidad, respaldo y soluciones reales para el campo peruano.
+                        </p>
+                    </div>
+
+                    <div class="grid sm:grid-cols-3 gap-6 pt-4 stagger">
+                        
+                        <!-- FEATURE 1 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow text-center">
+                            <div class="w-16 h-16 mx-auto bg-gradient-to-tr from-cyan-500 to-blue-500 rounded-2xl text-white flex items-center justify-center text-3xl mb-4 shadow-lg">
+                                <i class="fa-solid fa-crown"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-base mb-1">Materiales de alta calidad</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Fabricados bajo estrictas normas ISO y resina 100% virgen.</p>
+                        </div>
+
+                        <!-- FEATURE 2 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow text-center">
+                            <div class="w-16 h-16 mx-auto bg-gradient-to-tr from-emerald-500 to-teal-500 rounded-2xl text-white flex items-center justify-center text-3xl mb-4 shadow-lg">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-base mb-1">Asesoría técnica personalizada</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Ingenieros calificados respaldan tu inversión en campo.</p>
+                        </div>
+
+                        <!-- FEATURE 3 -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow text-center">
+                            <div class="w-16 h-16 mx-auto bg-gradient-to-tr from-amber-500 to-yellow-500 rounded-2xl text-white flex items-center justify-center text-3xl mb-4 shadow-lg">
+                                <i class="fa-solid fa-hand-holding-dollar"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-base mb-1">Precios competitivos</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Venta directa de fábrica con la mejor relación costo-beneficio.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- RIGHT SHOWCASE IMAGE (CAPTUR3 AGRO SHOWCASE) -->
+                <!-- REPLACEMENT NOTE: Field Irrigation Image -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+                        <img src="tecnología_riego.png" 
+                             alt="Asesoría de Riego Agrícola EGOTEK" 
+                             class="w-full h-[380px] object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <span class="bg-brand-yellow text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Tecnología de Riego</span>
+                                <p class="text-sm font-semibold">Instalaciones de asporsión y termofusión con garantía de presión.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: NUESTROS PROYECTOS (MATCHING CAPTURE 3 BOTTOM) -->
+    <section id="proyectos" class="reveal py-20 bg-slate-900 text-white relative overflow-hidden">
+        
+        <!-- Subtle Nature Glow -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- LEFT NARRATIVE -->
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest">Experiencia Comprobada</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-heading tracking-tight leading-tight">
+                        Nuestros proyectos
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed font-light">
+                        Hemos trabajado en diversos proyectos agrícolas e industriales a nivel nacional, contribuyendo de manera activa al crecimiento y eficiencia de nuestros clientes.
+                    </p>
+                    <div class="pt-4 flex items-center gap-6">
+                        <div>
+                            <p class="text-3xl font-black font-heading text-emerald-400">+500</p>
+                            <p class="text-xs text-slate-400">Proyectos Ejecutados</p>
+                        </div>
+                        <div class="w-px h-10 bg-slate-700"></div>
+                        <div>
+                            <p class="text-3xl font-black font-heading text-emerald-400">100%</p>
+                            <p class="text-xs text-slate-400">Cobertura Nacional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT CAROUSEL / SLIDER SHOWCASE -->
+                <div class="lg:col-span-7">
+                    <div class="relative bg-slate-800 rounded-3xl p-3 border border-slate-700 shadow-2xl">
+                        
+                        <!-- SLIDE IMAGE CONTAINER -->
+                        <div class="relative h-80 sm:h-96 rounded-2xl overflow-hidden" id="projectSlider">
+                            <!-- REPLACEMENT NOTE: Project Slide Image 1 -->
+                            <img id="projectImage" src="colector-ica.png.png" 
+                                 alt="Proyecto de Termofusión EGOTEK" 
+                                 class="w-full h-full object-cover transition-all duration-500">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-6">
+                                <div>
+                                    <span id="projectTag" class="bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Termofusión HDPE</span>
+                                    <h3 id="projectTitle" class="text-xl font-bold font-heading text-white">Instalación de Colector Principal - Ica</h3>
+                                    <p id="projectDesc" class="text-xs text-slate-300 mt-1">Conducción de agua a alta presión para irrigación agroindustrial.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CAROUSEL CONTROLS -->
+                        <div class="flex items-center justify-between mt-4 px-2">
+                            <div class="flex gap-2" id="projectDots">
+                                <span onclick="setSlide(0)" class="w-3 h-3 rounded-full bg-emerald-500 cursor-pointer"></span>
+                                <span onclick="setSlide(1)" class="w-3 h-3 rounded-full bg-slate-600 cursor-pointer"></span>
+                                <span onclick="setSlide(2)" class="w-3 h-3 rounded-full bg-slate-600 cursor-pointer"></span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="prevSlide()" class="w-10 h-10 rounded-full bg-slate-700 hover:bg-emerald-600 text-white flex items-center justify-center transition-colors">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+                                <button onclick="nextSlide()" class="w-10 h-10 rounded-full bg-slate-700 hover:bg-emerald-600 text-white flex items-center justify-center transition-colors">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: NOSOTROS / ¿QUIÉNES SOMOS? (MATCHING CAPTURE 6) -->
+    <section id="nosotros" class="reveal py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- TOP HERO BANNER FOR ABOUT US (CAPTUR6 FACTORY) -->
+            <!-- REPLACEMENT NOTE: Industrial Plant Image -->
+<div class="relative h-64 sm:h-80 rounded-3xl overflow-hidden mb-16 shadow-xl border border-slate-100">
+                <img src="Planta_de_producción.webp" 
+                     alt="Planta de Extrusión EGOTEK" 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex items-end justify-start p-6 sm:p-8">
+                    <span class="bg-white/90 backdrop-blur-md text-slate-900 font-extrabold px-6 py-2.5 rounded-2xl shadow-lg text-sm sm:text-base tracking-wide uppercase">
+                        Planta de Producción e Ingeniería EGOTEK
+                    </span>
+                </div>
+            </div>
+            <!-- WHO WE ARE CARD (MATCHING CAPTURE 6) -->
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mb-6">
+                    ¿Quiénes Somos?
+                </h2>
+                <div class="bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm relative text-left sm:text-center">
+                    <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
+                        Somos una empresa peruana dedicada a brindar soluciones integrales en sistemas de riego tecnificado, conducción y distribución eficiente del agua para el sector agrícola e industrial.
+                    </p>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mt-4 font-light">
+                        Nuestra propuesta nace con el firme propósito de acercar tecnología de vanguardia, ingeniería de precisión y productos confiables al agricultor. De esta manera, contribuimos activamente al desarrollo de una agricultura más productiva, eficiente y sostenible en todo el país.
+                    </p>
+                </div>
+            </div>
+
+<!-- MISIÓN Y VISIÓN -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto stagger">
+                
+                <!-- MISIÓN CARD -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 text-center group">
+                    <!-- ÍCONO CENTRADO -->
+                    <div class="w-24 h-24 rounded-3xl bg-amber-50/80 p-4 mb-6 mx-auto flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <img src="Misión.png" alt="Misión EGOTEK" class="w-full h-full object-contain animate-float-slow">
+                    </div>
+                    <!-- TÍTULO CENTRADO -->
+                    <h3 class="text-2xl font-bold font-heading text-brand-yellow mb-4">Misión</h3>
+                    <!-- TEXTO JUSTIFICADO -->
+                    <p class="text-slate-600 text-sm leading-relaxed text-justify max-w-md mx-auto">
+                        Brindar soluciones integrales e innovadoras para el riego tecnificado y la conducción eficiente del agua, ofreciendo productos confiables, asesoría técnica y atención especializada que contribuyan a mejorar la productividad, eficiencia y sostenibilidad del sector agrícola.
+                    </p>
+                </div>
+
+                <!-- VISIÓN CARD -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 text-center group">
+                    <!-- ÍCONO CENTRADO -->
+                    <div class="w-24 h-24 rounded-3xl bg-emerald-50/80 p-4 mb-6 mx-auto flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <img src="Visión.png" alt="Visión EGOTEK" class="w-full h-full object-contain animate-float-slow">
+                    </div>
+                    <!-- TÍTULO CENTRADO -->
+                    <h3 class="text-2xl font-bold font-heading text-brand-yellow mb-4">Visión</h3>
+                    <!-- TEXTO JUSTIFICADO -->
+                    <p class="text-slate-600 text-sm leading-relaxed text-justify max-w-md mx-auto">
+                        Ser una empresa peruana referente en soluciones de riego tecnificado e infraestructura hidráulica para el agro, reconocida por su innovación, calidad, confiabilidad y compromiso con el uso eficiente del agua, contribuyendo al desarrollo de una agricultura moderna y sostenible.
+                    </p>
+                </div>
+
+            </div>
+                </div>
+
+            </div>
+            </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 7: SOLICITA UNA COTIZACIÓN PERSONALIZADA (CONTACTO) -->
+    <section id="contacto" class="reveal py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-5xl font-extrabold font-heading tracking-tight">
+                    Solicita una <span class="bg-gradient-to-b from-[#FFA040] to-[#FF6D00] bg-clip-text text-transparent inline-block">Cotización Personalizada</span>
+                </h2>
+                <p class="mt-3 text-slate-300 text-base sm:text-lg">
+                    Completa los datos de tu requerimiento y recibe atención inmediata por parte de nuestros ingenieros especialistas.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 max-w-6xl mx-auto items-start">
+                
+                <!-- CALCULATOR / FORM -->
+                <div class="lg:col-span-7 bg-slate-800/90 p-8 rounded-3xl border border-slate-700 shadow-2xl backdrop-blur-md">
+                    <form id="quoteForm" onsubmit="generateWhatsAppQuote(event)" class="space-y-5">
+                        
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Nombre Completo o Empresa *</label>
+                            <input type="text" id="quoteName" required placeholder="Ej: Juan Pérez / Agrícola El Sol" 
+                                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm">
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Producto de Interés *</label>
+                                <select id="quoteProduct" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-green transition-colors text-sm">
+                                    <option value="Manguera HDPE">Manguera HDPE</option>
+                                    <option value="Tubería HDPE">Tubería HDPE</option>
+                                    <option value="Manguera Duplex">Manguera Duplex</option>
+                                    <option value="Accesorios HDPE">Accesorios HDPE</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Diámetro Requerido</label>
+                                <select id="quoteDiameter" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-green transition-colors text-sm">
+                                    <option value="1/2' - 16 mm">1/2" - 16 mm</option>
+                                    <option value="3/4' - 25 mm">3/4" - 25 mm</option>
+                                    <option value="1' - 32 mm">1" - 32 mm</option>
+                                    <option value="1 1/2' - 50 mm">1 1/2" - 50 mm</option>
+                                    <option value="2' - 63 mm">2" - 63 mm</option>
+                                    <option value="3' - 90 mm">3" - 90 mm</option>
+                                    <option value="4' - 110 mm">4" - 110 mm</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Cantidad (Metros / Piezas)</label>
+                                <input type="number" id="quoteQuantity" min="1" placeholder="Ej: 500" 
+                                       class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Ciudad / Proyecto</label>
+                                <input type="text" id="quoteLocation" placeholder="Ej: Ica, Piura, Arequipa..." 
+                                       class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Detalles Adicionales</label>
+                            <textarea id="quoteMessage" rows="3" placeholder="Especificaciones de presión (PN10, PN16), accesorios requeridos, etc." 
+                                      class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-4 rounded-xl shadow-xl hover:shadow-emerald-900/50 transition-all flex items-center justify-center gap-3 text-base">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Enviar Solicitud a WhatsApp</span>
+                        </button>
+
+                    </form>
+                </div>
+
+                <!-- DIRECT CONTACT INFO -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Dirección</h4>
+                                <p class="text-xs text-slate-300 mt-1">Mza. B Lote. 05 Asc. Asc. Industrias Unidas Micro y Pequeña Empresa de Carabayllo, Mz. B, Lt. 05 Lima - Lima - Carabayllo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-brand-yellow flex items-center justify-center text-2xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Central de Ventas</h4>
+                                <p class="text-xs text-slate-300 mt-1">+51 955 590 217 - +51 900 515 926 - +51 977 681 961</p>
+                                <p class="text-xs text-slate-400 mt-0.5">Lunes a Viernes: 8:00 am - 6:00 pm Sábado 8:00 am - 4:00 pm </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Correo Electrónico</h4>
+                                <p class="text-xs text-slate-300 mt-1">ventas@egotek.pe / contacto@egotek.pe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ===== PRODUCT DETAIL MODAL ===== -->
+    <div id="productModal" class="modal-backdrop fixed inset-0 z-[100] bg-slate-950/75 backdrop-blur-sm p-3 sm:p-6 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="modalProductTitle">
+        <div class="product-modal relative w-full max-w-6xl bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <button type="button" onclick="closeProductModal()" aria-label="Cerrar detalle del producto"
+                    class="absolute top-3 right-3 z-20 w-11 h-11 rounded-full bg-white/95 text-slate-700 shadow-lg hover:bg-slate-100 flex items-center justify-center transition-transform hover:scale-105">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="grid lg:grid-cols-2 max-h-[92vh] overflow-y-auto">
+                <!-- GALLERY -->
+                <div class="bg-slate-100 p-4 sm:p-6 lg:p-8">
+                    <div class="modal-gallery-main rounded-2xl overflow-hidden bg-white shadow-inner relative">
+                        <img id="modalMainImage" src="" alt="" class="w-full h-full object-contain">
+                        <button type="button" onclick="prevProductImage()" aria-label="Imagen anterior"
+                                class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 text-slate-800 shadow-md hover:bg-white">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button type="button" onclick="nextProductImage()" aria-label="Imagen siguiente"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 text-slate-800 shadow-md hover:bg-white">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div id="modalThumbs" class="grid grid-cols-4 gap-2.5 mt-3"></div>
+                    <p class="text-xs text-slate-500 text-center mt-3"><i class="fa-solid fa-images mr-1"></i> Diferentes vistas del producto</p>
+                </div>
+
+                <!-- DETAILS -->
+                <div class="p-5 sm:p-7 lg:p-9 flex flex-col">
+                    <div>
+                        <span id="modalProductCategory" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider"></span>
+                        <h2 id="modalProductTitle" class="text-2xl sm:text-3xl font-bold text-slate-900 mt-3"></h2>
+                        <p id="modalProductDescription" class="text-slate-600 text-sm sm:text-base leading-relaxed mt-3"></p>
+                    </div>
+
+                    <div class="mt-6">
+                        <h3 class="font-bold text-slate-900 flex items-center gap-2 mb-3">
+                            <i class="fa-solid fa-list-check text-brand-green"></i> Características
+                        </h3>
+                        <ul id="modalFeatures" class="grid sm:grid-cols-2 gap-2.5 text-sm"></ul>
+                    </div>
+
+                    <div class="mt-6">
+                        <h3 class="font-bold text-slate-900 flex items-center gap-2 mb-3">
+                            <i class="fa-solid fa-sliders text-brand-green"></i> Especificaciones
+                        </h3>
+                        <div id="modalSpecs" class="grid grid-cols-2 gap-3"></div>
+                    </div>
+
+                    <div class="mt-7 pt-5 border-t border-slate-200">
+                        <a id="modalWhatsapp" href="#" target="_blank" rel="noopener"
+                           class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            Solicitar cotización
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER (MATCHING CAPTURE 5 BOTTOM) -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+<!-- LOGO -->
+<div class="flex items-center gap-3">
+    <img
+        src="Logo_Egotek_Blanco.png"
+        alt="EGOTEK"
+        class="h-20 w-auto object-contain"
+    >
+</div>
+                <!-- COPYRIGHT (MATCHING CAPTURE 5 EXACT FOOTER NOTE) -->
+                <div class="text-xs text-slate-500 text-center md:text-right">
+                    <p>© 2026 Egotek. Todos los derechos reservados. | Desarrollado por Euclides ML</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a
+    href="https://wa.me/51955590217?text=%C2%A1Hola!%20Deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20productos."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="Contactar con EGOTEK por WhatsApp"
+    title="Escríbenos por WhatsApp"
+>
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
+    <!-- JAVASCRIPT INTERACTIVE LOGIC -->
+    <script>
+
+        // ===== PRODUCT DETAIL DATA & MODAL =====
+        const productDetails = {
+            'mangueras-hdpe': {
+                category: 'Mangueras HDPE',
+                title: 'Manguera HDPE',
+                description: 'Solución flexible y resistente para conducción de agua, riego agrícola y aplicaciones que requieren durabilidad y facilidad de instalación.',
+                features: ['Alta resistencia mecánica', 'Flexible y fácil de transportar', 'Resistente a rayos UV', 'Larga vida útil', 'Material PE100 / PE80', 'Uso agrícola e industrial'],
+                specs: [
+                    ['Color', 'Negro / Azul'], ['Presentación', 'Rollo'], ['Metraje', '100 metros'], ['Presión nominal', 'PN8 – PN20']
+                ],
+                images: [
+                    'Manguera_HDPE_F._Azul.png',
+                    'Manguera_HDPE_F._Amarillo.png',
+                    'Manguera_HDPE_F._Verde.png',
+                    'Manguera_HDPE_4.png'
+                ]
+            },
+            'mangueras-duplex': {
+                category: 'Mangueras Duplex',
+                title: 'Manguera Duplex PVC',
+                description: 'Manguera de doble capa orientada a riego y conducción de agua, combinando flexibilidad, resistencia y facilidad de manejo.',
+                features: ['Doble capa de protección', 'Buena flexibilidad', 'Resistencia a la intemperie', 'Fácil manipulación', 'Ideal para riego', 'Uso en parcelas y jardinería'],
+                specs: [
+                    ['Color', 'Azul - Rojo - Verde - Negro'], ['Presentación', 'Rollo'], ['Metraje', '100 metros'], ['Categoría Comercial', 'Económica - Suave - Pesada']
+                ],
+                images: [
+                    'Manguera_Duplex.png',
+                    'Manguera_Duplex_Azul.png',
+                    'Manguera_Duplex_Rojo.png',
+                    'Manguera_Duplex_Negro.png'
+                ]
+            },
+            'tuberias-hdpe': {
+                category: 'Tuberías HDPE',
+                title: 'Tubería HDPE Estructural',
+                description: 'Tubería para conducción de agua a grandes volúmenes y aplicaciones hidráulicas que requieren resistencia y confiabilidad.',
+                features: ['Alta resistencia a presión', 'Excelente comportamiento estructural', 'Resistencia a corrosión', 'Larga duración', 'Aplicaciones hidráulicas', 'Instalación versátil'],
+                specs: [
+                    ['Color', 'Negro / Azul'], ['Presentación', 'Metros'], ['Metraje', '6 - 12 metros'], ['Presión nominal', 'PN8 – PN25']
+                ],
+                images: [
+                    'Tubería_HDPE_01.jpg',
+                    'Tubería_HDPE_02.jpg',
+                    'Tubería_HDPE_03.webp',
+                    'Tubería_HDPE_04.avif'
+                ]
+            },
+            'accesorios-hdpe': {
+                category: 'Accesorios HDPE',
+                title: 'Accesorios y Conexiones HDPE',
+                description: 'Conexiones para complementar instalaciones HDPE: codos, tees, acoples, válvulas y soluciones de termofusión.',
+                features: ['Conexiones seguras', 'Compatibles con sistemas HDPE', 'Codos y tees', 'Acoples y transiciones', 'Válvulas', 'Opciones para termofusión'],
+                specs: [
+                    ['Color', 'Negro / Azul'], ['Presentación', 'Caja / Unidad'], ['Metraje', 'No aplica'], ['Presión nominal', 'PN16']
+                ],
+                images: [
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1000&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=1000&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?q=80&w=1000&auto=format&fit=crop'
+                ]
+            }
+        };
+
+        let modalProduct = null;
+        let modalImageIndex = 0;
+
+        function openProductModal(productId) {
+            const product = productDetails[productId];
+            if (!product) return;
+            modalProduct = product;
+            modalImageIndex = 0;
+
+            document.getElementById('modalProductCategory').innerHTML = '<i class="fa-solid fa-box-open"></i> ' + product.category;
+            document.getElementById('modalProductTitle').textContent = product.title;
+            document.getElementById('modalProductDescription').textContent = product.description;
+
+            const features = document.getElementById('modalFeatures');
+            features.innerHTML = product.features.map(item => `
+                <li class="flex items-start gap-2 p-2.5 rounded-lg bg-slate-50 text-slate-700">
+                    <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i><span>${item}</span>
+                </li>
+            `).join('');
+
+            const specs = document.getElementById('modalSpecs');
+            specs.innerHTML = product.specs.map(([label,value]) => `
+                <div class="spec-chip p-3 rounded-xl bg-slate-50 border border-slate-200">
+                    <p class="text-[10px] uppercase tracking-wider font-bold text-slate-400">${label}</p>
+                    <p class="text-sm font-bold text-slate-800 mt-1">${value}</p>
+                </div>
+            `).join('');
+
+            const message = encodeURIComponent(`Hola EGOTEK, deseo cotizar el producto: ${product.title}. Quisiera información sobre colores, presentación, metraje y presión nominal (PN).`);
+            document.getElementById('modalWhatsapp').href = `https://wa.me/51955590217?text=${message}`;
+
+            renderProductGallery();
+            document.getElementById('productModal').classList.add('open');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function renderProductGallery() {
+            if (!modalProduct) return;
+            const img = document.getElementById('modalMainImage');
+            img.src = modalProduct.images[modalImageIndex];
+            img.alt = modalProduct.title + ' - vista ' + (modalImageIndex + 1);
+
+            const thumbs = document.getElementById('modalThumbs');
+            thumbs.innerHTML = modalProduct.images.map((src, i) => `
+                <button type="button" onclick="setProductImage(${i})" class="modal-thumb ${i === modalImageIndex ? 'active' : ''} rounded-xl overflow-hidden border-2 border-transparent bg-white aspect-square">
+                    <img src="${src}" alt="Vista ${i + 1} de ${modalProduct.title}" class="w-full h-full object-cover">
+                </button>
+            `).join('');
+        }
+
+        function setProductImage(index) {
+            if (!modalProduct) return;
+            modalImageIndex = index;
+            renderProductGallery();
+        }
+
+        function nextProductImage() {
+            if (!modalProduct) return;
+            modalImageIndex = (modalImageIndex + 1) % modalProduct.images.length;
+            renderProductGallery();
+        }
+
+        function prevProductImage() {
+            if (!modalProduct) return;
+            modalImageIndex = (modalImageIndex - 1 + modalProduct.images.length) % modalProduct.images.length;
+            renderProductGallery();
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.remove('open');
+            document.body.classList.remove('overflow-hidden');
+            modalProduct = null;
+        }
+
+        document.getElementById('productModal').addEventListener('click', (event) => {
+            if (event.target.id === 'productModal') closeProductModal();
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeProductModal();
+            if (!modalProduct) return;
+            if (event.key === 'ArrowRight') nextProductImage();
+            if (event.key === 'ArrowLeft') prevProductImage();
+        });
+
+        // SPECIFICATIONS DATA MATCHING EGOTEK (CAPTURE 5 DATA)
+        const specsData = [
+            { diameter: '4" - 110 mm', pressure: 'PN8 - PN20', material: 'PE100 - PE80', color: 'Negro - Azul', length: '100 Metros' },
+            { diameter: '3" - 90 mm', pressure: 'PN8 - PN20', material: 'PE100 - PE80', color: 'Negro - Azul', length: '100 Metros' },
+            { diameter: '2 1/2" - 75 mm', pressure: 'PN8 - PN20', material: 'PE100 - PE80', color: 'Negro - Azul', length: '100 Metros' },
+            { diameter: '2" - 63 mm', pressure: 'PN8 - PN20', material: 'PE100 - PE80', color: 'Negro - Azul', length: '100 Metros' },
+            { diameter: '1 1/2" - 50 mm', pressure: 'PN8 - PN20', material: 'PE100 - PE80', color: 'Negro - Azul', length: '100 Metros' },
+            { diameter: '1 1/4" - 40 mm', pressure: 'PN8 - PN20', material: 'PE100 - PE80', color: 'Negro - Azul', length: '100 Metros' },
+            { diameter: '1" - 32 mm', pressure: 'PN8 - PN20', material: 'PE100 - PE80', color: 'Negro - Azul', length: '100 Metros' },
+            { diameter: '3/4" - 25 mm', pressure: 'PN8 - PN20', material: 'PE100 - PE80', color: 'Negro - Azul', length: '100 Metros' },
+            { diameter: '5/8" - 20 mm', pressure: 'PN8 - PN20', material: 'PE100 - PE80', color: 'Negro - Azul', length: '100 Metros' },
+            { diameter: '1/2" - 16 mm', pressure: 'PN8 - PN20', material: 'PE100 - PE80', color: 'Negro - Azul', length: '100 Metros' }
+        ];
+
+        // RENDER SPECIFICATIONS TABLE
+        function renderSpecsTable() {
+            const tbody = document.getElementById('specsTableBody');
+            tbody.innerHTML = '';
+
+            specsData.forEach((row) => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 transition-colors text-slate-700';
+                tr.innerHTML = `
+                    <td class="py-3.5 px-6 font-bold text-brand-blue bg-blue-50/50">${row.diameter}</td>
+                    <td class="py-3.5 px-6 font-medium">${row.pressure}</td>
+                    <td class="py-3.5 px-6 font-medium">${row.material}</td>
+                    <td class="py-3.5 px-6 font-medium">${row.color}</td>
+                    <td class="py-3.5 px-6 font-medium">${row.length}</td>
+                    <td class="py-3.5 px-6 text-center">
+                        <button onclick="quickQuote('${row.diameter}')" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs px-3 py-1.5 rounded-lg font-semibold transition-colors">
+                            Cotizar
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // PRODUCT TAB SWITCHING LOGIC
+        const tabInfo = {
+            'mangueras-hdpe': {
+                title: 'Manguera <span class="text-brand-green">HDPE</span>',
+                subtitle: 'Resistencia, flexibilidad y durabilidad para tus proyectos. Soluciones eficientes para la agricultura, construcción, industriales y más. Llevamos agua donde más la necesitas.'
+            },
+            'tuberias-hdpe': {
+                title: 'Tubería <span class="text-brand-green">HDPE Estructural</span>',
+                subtitle: 'Diseñadas para conducción de agua a grandes volúmenes y alta presión. Excelente comportamiento estructural en proyectos mineros e hidráulicos.'
+            },
+            'mangueras-duplex': {
+                title: 'Mangueras <span class="text-brand-green">Duplex Doble Capa</span>',
+                subtitle: 'Doble protección con formulación UV de alta durabilidad para resistir la intemperie en parcelas y jardinería comercial.'
+            },
+            'accesorios-hdpe': {
+                title: 'Accesorios y <span class="text-brand-green">Conexiones HDPE</span>',
+                subtitle: 'Codos, Tees, Válvulas, Transiciones y Máquinas de Termofusión de alto rendimiento con sellado hermético certificado.'
+            }
+        };
+
+        function switchProductTab(tabId) {
+            // Update Tab active styling
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = 'tab-btn px-5 py-3 rounded-xl font-semibold text-sm sm:text-base transition-all bg-slate-100 text-slate-600 hover:bg-slate-200';
+            });
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            if (activeBtn) {
+                activeBtn.className = 'tab-btn px-5 py-3 rounded-xl font-semibold text-sm sm:text-base transition-all bg-emerald-700 text-white shadow-md';
+            }
+
+            // Update Tab Title & Subtitle
+            if (tabInfo[tabId]) {
+                document.getElementById('tabTitle').innerHTML = tabInfo[tabId].title;
+                document.getElementById('tabSubtitle').innerText = tabInfo[tabId].subtitle;
+            }
+        }
+
+        function scrollToSpecs() {
+            document.getElementById('especificaciones').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function quickQuote(diameter) {
+            document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('quoteDiameter').value = diameter;
+        }
+
+        // PROJECTS CAROUSEL SLIDER LOGIC
+const projectSlides = [
+            {
+                img: 'colector-ica.png.png',
+                tag: 'Termofusión HDPE',
+                title: 'Instalación de Colector Principal - Ica',
+                desc: 'Conducción de agua a alta presión para irrigación agroindustrial.'
+            },
+            {
+                img: 'Sistema_Aspersión_Olmos.png',
+                tag: 'Riego Tecnificado',
+                title: 'Sistema de Aspersión de Precisión - Olmos',
+                desc: 'Optimización del recurso hídrico para más de 200 hectáreas de cultivo.'
+            },
+            {
+                img: 'Linea de conducción_Arequipa.webp',
+                tag: 'Infraestructura Minera',
+                title: 'Línea de Conducción Industrial - Arequipa',
+                desc: 'Tuberías HDPE de 4 pulgadas resistentes a químicos y alta abrasión.'
+            }
+        ];
+        let currentSlide = 0;
+
+        function updateSlide() {
+            const slide = projectSlides[currentSlide];
+            document.getElementById('projectImage').src = slide.img;
+            document.getElementById('projectTag').innerText = slide.tag;
+            document.getElementById('projectTitle').innerText = slide.title;
+            document.getElementById('projectDesc').innerText = slide.desc;
+
+            // Update dots
+            const dots = document.getElementById('projectDots').children;
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = i === currentSlide ? 'w-3 h-3 rounded-full bg-emerald-500 cursor-pointer' : 'w-3 h-3 rounded-full bg-slate-600 cursor-pointer';
+            }
+        }
+
+        function setSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % projectSlides.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + projectSlides.length) % projectSlides.length;
+            updateSlide();
+        }
+
+        // WHATSAPP FORM GENERATOR
+        function generateWhatsAppQuote(event) {
+            event.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const product = document.getElementById('quoteProduct').value;
+            const diameter = document.getElementById('quoteDiameter').value;
+            const quantity = document.getElementById('quoteQuantity').value || 'No especificada';
+            const location = document.getElementById('quoteLocation').value || 'No especificada';
+            const message = document.getElementById('quoteMessage').value || 'Sin mensaje adicional';
+
+            const whatsappText = `*COTIZACIÓN EGOTEK WEBSITE*%0A%0A` +
+                `*Cliente:* ${encodeURIComponent(name)}%0A` +
+                `*Producto:* ${encodeURIComponent(product)}%0A` +
+                `*Diámetro:* ${encodeURIComponent(diameter)}%0A` +
+                `*Cantidad:* ${encodeURIComponent(quantity)}%0A` +
+                `*Ubicación:* ${encodeURIComponent(location)}%0A` +
+                `*Detalles:* ${encodeURIComponent(message)}`;
+
+            window.open(`https://wa.me/51955590217?text=${whatsappText}`, '_blank');
+        }
+
+        // MOBILE MENU TOGGLE
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-2xl';
+            }
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            menuIcon.className = 'fa-solid fa-bars text-2xl';
+        }
+
+
+        // ===== SCROLL REVEAL ANIMATIONS =====
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => revealObserver.observe(el));
+
+        // INITIALIZE ON LOAD
+        window.onload = function() {
+            renderSpecsTable();
+            // Auto slide carousel every 6 seconds
+            setInterval(nextSlide, 6000);
+        };
+    </script>
+    <!-- BARRA FLOTANTE DE REDES SOCIALES (LATERAL IZQUIERDA/DERECHA) -->
+<aside aria-label="Redes Sociales EGOTEK" class="fixed right-4 top-1/2 -translate-y-1/2 z-50 hidden sm:flex flex-col gap-3 p-2 bg-slate-800/80 backdrop-blur-md border border-slate-700/50 rounded-full shadow-2xl">
+    
+    <!-- FACEBOOK -->
+    <a href="https://www.facebook.com/egotekperu" target="_blank" rel="noopener noreferrer" title="Facebook"
+       class="w-11 h-11 rounded-full bg-slate-700/60 hover:bg-emerald-600 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+        <i class="fa-brands fa-facebook-f text-lg group-hover:scale-110"></i>
+    </a>
+
+    <!-- TIKTOK -->
+    <a href="https://www.tiktok.com/@egotekperu" target="_blank" rel="noopener noreferrer" title="TikTok"
+       class="w-11 h-11 rounded-full bg-slate-700/60 hover:bg-emerald-600 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+        <i class="fa-brands fa-tiktok text-lg group-hover:scale-110"></i>
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a href="https://www.instagram.com/egotekperu" target="_blank" rel="noopener noreferrer" title="Instagram"
+       class="w-11 h-11 rounded-full bg-slate-700/60 hover:bg-emerald-600 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+        <i class="fa-brands fa-instagram text-lg group-hover:scale-110"></i>
+    </a>
+
+    <!-- YOUTUBE -->
+    <a href="https://www.tiktok.com/@egotekperu" target="_blank" rel="noopener noreferrer" title="YouTube"
+       class="w-11 h-11 rounded-full bg-slate-700/60 hover:bg-emerald-600 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+        <i class="fa-brands fa-youtube text-lg group-hover:scale-110"></i>
+    </a>
+
+</aside>
+</body>
+</html>
