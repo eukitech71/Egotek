@@ -448,134 +448,185 @@
         </div>
     </section>
 
-    <!-- SECTION 2: NUESTROS PRODUCTOS -->
-    <section id="productos" class="reveal py-20 bg-slate-50 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- SECTION HEADER -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-md bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider mb-3 shadow-sm">
-                    Nuestros Productos
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 tracking-tight">
-                    Mangueras, tuberías y accesorios HDPE
-                </h2>
-                <p class="mt-3 text-lg text-slate-600">
-                    Encuentra la solución ideal para cada necesidad de tu proyecto agrícola o industrial.
-                </p>
-                <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-yellow-500 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <!-- PRODUCT CARDS GRID (MATCHING CAPTURE 2 EXACTLY) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 stagger">
-                
-                <!-- CARD 1: MANGUERAS HDPE -->
-                <div class="product-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" role="button" tabindex="0" onclick="openProductModal('mangueras-hdpe')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('mangueras-hdpe')}">
-                    <div>
-                        <!-- REPLACEMENT NOTE: Manguera HDPE Image -->
-                        <div class="h-48 bg-slate-50 rounded-xl overflow-hidden mb-5 flex items-center justify-center p-4 group-hover:bg-emerald-50/50 transition-colors">
-                            <img src="Manguera_HDPE.png" 
-                                 alt="Mangueras HDPE EGOTEK" 
-                                 class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <h3 class="text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors">
-                            Mangueras HDPE
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
-                            Flexibles, resistentes y de larga duración. Ideales para maniobra en campo.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-slate-100">
-                        <button onclick="event.stopPropagation(); openProductModal('mangueras-hdpe')" 
-                                class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-2.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm">
-                            <span>Ver producto</span>
-                            <i class="fa-solid fa-chevron-right text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- CARD 2: MANGUERAS DUPLEX -->
-                <div class="product-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" role="button" tabindex="0" onclick="openProductModal('mangueras-duplex')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('mangueras-duplex')}">
-                    <div>
-                        <!-- REPLACEMENT NOTE: Manguera Duplex Image -->
-                        <div class="h-48 bg-slate-50 rounded-xl overflow-hidden mb-5 flex items-center justify-center p-4 group-hover:bg-emerald-50/50 transition-colors">
-                            <img src="Manguera_Duplex.png" 
-                                 alt="Mangueras Duplex EGOTEK" 
-                                 class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <h3 class="text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors">
-                            Mangueras Duplex
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
-                            Doble capa y alta resistencia para hogar, parcelas o riego continuo.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-slate-100">
-                        <button onclick="event.stopPropagation(); openProductModal('mangueras-duplex')" 
-                                class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-2.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm">
-                            <span>Ver producto</span>
-                            <i class="fa-solid fa-chevron-right text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- CARD 3: TUBERÍAS HDPE -->
-                <div class="product-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" role="button" tabindex="0" onclick="openProductModal('tuberias-hdpe')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('tuberias-hdpe')}">
-                    <div>
-                        <!-- REPLACEMENT NOTE: Tuberías HDPE Image -->
-                        <div class="h-48 bg-slate-50 rounded-xl overflow-hidden mb-5 flex items-center justify-center p-4 group-hover:bg-emerald-50/50 transition-colors">
-                            <img src="Tubería_HDPE.png" 
-                                 alt="Tuberías HDPE EGOTEK" 
-                                 class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <h3 class="text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors">
-                            Tuberías HDPE
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
-                            Ideales para la conducción de agua y proyectos hidráulicos de alta demanda.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-slate-100">
-                        <button onclick="event.stopPropagation(); openProductModal('tuberias-hdpe')" 
-                                class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-2.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm">
-                            <span>Ver producto</span>
-                            <i class="fa-solid fa-chevron-right text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- CARD 4: ACCESORIOS HDPE -->
-                <div class="product-card bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group" role="button" tabindex="0" onclick="openProductModal('accesorios-hdpe')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('accesorios-hdpe')}">
-                    <div>
-                        <!-- REPLACEMENT NOTE: Accesorios HDPE Image -->
-                        <div class="h-48 bg-slate-50 rounded-xl overflow-hidden mb-5 flex items-center justify-center p-4 group-hover:bg-emerald-50/50 transition-colors">
-                            <img src="Accesorios_HDPE.png" 
-                                 alt="Accesorios HDPE EGOTEK" 
-                                 class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <h3 class="text-xl font-bold font-heading text-slate-900 group-hover:text-emerald-700 transition-colors">
-                            Accesorios HDPE
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-2 leading-relaxed">
-                            Conexiones seguras, codos, tees, acoples y válvulas de alto rendimiento.
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-slate-100">
-                        <button onclick="event.stopPropagation(); openProductModal('accesorios-hdpe')" 
-                                class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-2.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm">
-                            <span>Ver producto</span>
-                            <i class="fa-solid fa-chevron-right text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
+<!-- ===== SECCIÓN DE PRODUCTOS UNIFICADA Y RESPONSIVA ===== -->
+<section id="productos" class="reveal py-12 sm:py-16 lg:py-20 bg-[#0F172A] relative">
+    <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- ENCABEZADO DE SECCIÓN -->
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+            <span class="inline-block px-4 py-1.5 rounded-md bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider mb-3">
+                Nuestros Productos
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white tracking-tight mb-4">
+                Mangueras, tuberías y accesorios <span class="text-emerald-400">HDPE</span>
+            </h2>
+            <p class="text-sm sm:text-base lg:text-lg text-slate-300 font-light leading-relaxed">
+                Encuentra la <span class="text-amber-400 font-semibold">solución ideal</span> para cada necesidad de tu <span class="text-emerald-400 font-semibold">proyecto agrícola o industrial</span>.
+            </p>
+            <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-yellow-500 mx-auto mt-4 rounded-full"></div>
         </div>
-    </section>
 
+        <!-- REJILLA ADAPTABLE -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+            <!-- TARJETA 1: MANGUERAS HDPE -->
+            <div class="bg-[#111C35] border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
+                <div>
+                    <!-- Contenedor blanco encajado al borde redondeado -->
+                    <div class="bg-white rounded-xl sm:rounded-2xl mb-5 flex items-center justify-center h-52 sm:h-60 lg:h-64 overflow-hidden p-2">
+                        <img src="Manguera_HDPE.png" alt="Mangueras HDPE" class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Mangueras HDPE</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                        Flexibles, resistentes y de larga duración. Ideales para maniobra en campo.
+                    </p>
+                </div>
+                <button onclick="event.stopPropagation(); openProductModal('mangueras-hdpe')" class="w-full py-3 sm:py-3.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+                    <span>Ver producto</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+
+            <!-- TARJETA 2: MANGUERAS DUPLEX -->
+            <div class="bg-[#111C35] border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
+                <div>
+                    <div class="bg-white rounded-xl sm:rounded-2xl mb-5 flex items-center justify-center h-52 sm:h-60 lg:h-64 overflow-hidden p-2">
+                        <img src="Manguera_Duplex.png" alt="Mangueras Duplex" class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Mangueras Duplex</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                        Doble capa y alta resistencia para hogar, parcelas o riego continuo.
+                    </p>
+                </div>
+                <button onclick="event.stopPropagation(); openProductModal('mangueras-duplex')" class="w-full py-3 sm:py-3.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+                    <span>Ver producto</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+
+            <!-- TARJETA 3: TUBERÍAS HDPE -->
+            <div class="bg-[#111C35] border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
+                <div>
+                    <div class="bg-white rounded-xl sm:rounded-2xl mb-5 flex items-center justify-center h-52 sm:h-60 lg:h-64 overflow-hidden p-2">
+                        <img src="Tubería_HDPE.png" alt="Tuberías HDPE" class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Tuberías HDPE</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                        Ideales para la conducción de agua y proyectos hidráulicos de alta demanda.
+                    </p>
+                </div>
+                <button onclick="event.stopPropagation(); openProductModal('tuberias-hdpe')" class="w-full py-3 sm:py-3.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+                    <span>Ver producto</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+
+            <!-- TARJETA 4: ACCESORIOS HDPE -->
+            <div class="bg-[#111C35] border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
+                <div>
+                    <div class="bg-white rounded-xl sm:rounded-2xl mb-5 flex items-center justify-center h-52 sm:h-60 lg:h-64 overflow-hidden p-2">
+                        <img src="Accesorios_HDPE.png" alt="Accesorios HDPE" class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Accesorios HDPE</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                        Conexiones seguras, codos, tees, acoples y válvulas de alto rendimiento.
+                    </p>
+                </div>
+                <button onclick="event.stopPropagation(); openProductModal('accesorios-hdpe')" class="w-full py-3 sm:py-3.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+                    <span>Ver producto</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- ===== SECCIÓN: SECTORES DE APLICACIÓN ===== -->
+<section id="sectores" class="reveal py-16 lg:py-20 bg-[#0F172A] relative border-t border-slate-800">
+    <div class="max-w-[1800px] mx-auto px-6 sm:px-10 lg:px-16 w-full">
+        
+        <!-- ENCABEZADO DE SECCIÓN CON TÍTULO EN BLANCO Y DEGRADADO NARANJA -->
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
+                Sectores de Aplicación
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight mb-4 flex flex-col gap-1 items-center">
+                <span>Industrias a las que</span>
+                <span class="bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 bg-clip-text text-transparent">
+                    Atendemos
+                </span>
+            </h2>
+            <p class="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+                Soluciones de alta ingeniería para minería, agricultura, saneamiento y proyectos de infraestructura.
+            </p>
+            <div class="w-24 h-1 bg-gradient-to-r from-orange-500 to-amber-400 mx-auto mt-5 rounded-full"></div>
+        </div>
+
+        <!-- REJILLA DE INDUSTRIAS -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6">
+
+            <!-- 1. MINERÍA -->
+            <div class="bg-[#111C35] border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-slate-950 transition-colors duration-300">
+                    <i class="fa-solid fa-industry text-2xl"></i>
+                </div>
+                <span class="text-white font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Minería</span>
+            </div>
+
+            <!-- 2. SANEAMIENTO -->
+            <div class="bg-[#111C35] border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors duration-300">
+                    <i class="fa-solid fa-droplet text-2xl"></i>
+                </div>
+                <span class="text-white font-bold text-sm sm:text-base group-hover:text-emerald-400 transition-colors">Saneamiento</span>
+            </div>
+
+            <!-- 3. CONSTRUCCIÓN -->
+            <div class="bg-[#111C35] border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-slate-950 transition-colors duration-300">
+                    <i class="fa-solid fa-building-user text-2xl"></i>
+                </div>
+                <span class="text-white font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Construcción</span>
+            </div>
+
+            <!-- 4. AGRICULTURA -->
+            <div class="bg-[#111C35] border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors duration-300">
+                    <i class="fa-solid fa-seedling text-2xl"></i>
+                </div>
+                <span class="text-white font-bold text-sm sm:text-base group-hover:text-emerald-400 transition-colors">Agricultura</span>
+            </div>
+
+            <!-- 5. PESCA -->
+            <div class="bg-[#111C35] border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-slate-950 transition-colors duration-300">
+                    <i class="fa-solid fa-water text-2xl"></i>
+                </div>
+                <span class="text-white font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Pesca</span>
+            </div>
+
+            <!-- 6. OIL & GAS -->
+            <div class="bg-[#111C35] border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors duration-300">
+                    <i class="fa-solid fa-fire-flame-simple text-2xl"></i>
+                </div>
+                <span class="text-white font-bold text-sm sm:text-base group-hover:text-emerald-400 transition-colors">Oil &amp; Gas</span>
+            </div>
+
+            <!-- 7. INDUSTRIAL -->
+            <div class="bg-[#111C35] border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-slate-950 transition-colors duration-300">
+                    <i class="fa-solid fa-gears text-2xl"></i>
+                </div>
+                <span class="text-white font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Industrial</span>
+            </div>
+
+        </div>
+    </div>
+</section>
     <!-- SECTION 3: TECHNICAL DETAILS & SPECS TABLE SECTION (MATCHING CAPTURE 4 & 5) -->
     <section id="especificaciones" class="reveal py-16 bg-white border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12">
             
             <!-- TAB NAVIGATION BUTTONS -->
             <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10">
@@ -726,7 +777,7 @@
         </div>
     </section>
     <!-- CONTENEDOR AISLADO DE TABLA INTERACTIVA (Sin alterar el layout global) -->
-<div class="hdpe-interactive-wrapper max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="hdpe-interactive-wrapper">
   
   <!-- BUSCADOR Y CONTROLES -->
   <div class="hdpe-controls">
@@ -748,7 +799,7 @@
   </div>
 
   <!-- CONTENEDOR DE SCROLL INTERNO PARA LA TABLA -->
-  <div class="hdpe-table-scroll">
+  <div class="hdpe-table-scroll overflow-x-auto w-full">
     <table id="hdpeInteractiveTable">
       <thead>
         <tr class="h-sdr">
@@ -1217,65 +1268,7 @@
 
         </div>
     </section>
-<!-- ===== SECCIÓN CERTIFICACIONES ISO ===== -->
-<section class="py-20 bg-slate-900 text-white relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <!-- Encabezado de la Sección -->
-        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span class="inline-block bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
-                Estándares Internacionales
-            </span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold font-heading tracking-tight">
-                Certificaciones <span class="text-emerald-400">ISO</span>
-            </h2>
-            <p class="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
-                Garantizamos la excelencia operativa, el respeto al medio ambiente y la seguridad de nuestro talento humano en cada proyecto de impermeabilización.
-            </p>
-        </div>
 
-        <!-- Tarjetas de Certificaciones -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- ISO 9001:2015 -->
-            <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-8 text-center flex flex-col items-center hover:border-emerald-500/50 transition-all duration-300 shadow-xl">
-                <div class="w-16 h-16 rounded-2xl bg-teal-500/20 border border-teal-500/40 text-teal-400 flex items-center justify-center text-2xl mb-6 shadow-lg shadow-teal-500/10">
-                    <i class="fa-solid fa-award"></i>
-                </div>
-                <h3 class="text-xl font-bold font-heading text-white mb-1">ISO 9001:2015</h3>
-                <span class="text-xs font-bold uppercase tracking-wider text-teal-400 mb-4">Gestión de Calidad</span>
-                <p class="text-slate-300 text-sm leading-relaxed font-light">
-                    Aseguramos que cada metro de geomembrana instalado cumpla con las especificaciones técnicas más exigentes del mercado mediante auditorías constantes.
-                </p>
-            </div>
-
-            <!-- ISO 14001:2015 -->
-            <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-8 text-center flex flex-col items-center hover:border-emerald-500/50 transition-all duration-300 shadow-xl">
-                <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-2xl mb-6 shadow-lg shadow-emerald-500/10">
-                    <i class="fa-solid fa-leaf"></i>
-                </div>
-                <h3 class="text-xl font-bold font-heading text-white mb-1">ISO 14001:2015</h3>
-                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-4">Gestión Ambiental</span>
-                <p class="text-slate-300 text-sm leading-relaxed font-light">
-                    Operamos mitigando nuestro impacto ecológico. Los geosintéticos que instalamos están diseñados precisamente para proteger el subsuelo y las fuentes de agua.
-                </p>
-            </div>
-
-            <!-- ISO 45001:2018 -->
-            <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-8 text-center flex flex-col items-center hover:border-emerald-500/50 transition-all duration-300 shadow-xl">
-                <div class="w-16 h-16 rounded-2xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 flex items-center justify-center text-2xl mb-6 shadow-lg shadow-indigo-500/10">
-                    <i class="fa-solid fa-user-shield"></i>
-                </div>
-                <h3 class="text-xl font-bold font-heading text-white mb-1">ISO 45001:2018</h3>
-                <span class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-4">Seguridad y Salud</span>
-                <p class="text-slate-300 text-sm leading-relaxed font-light">
-                    La integridad de nuestro equipo es prioridad cero. Mantenemos estrictos protocolos de prevención de riesgos para lograr operaciones libres de accidentes.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
     <!-- SECTION 7: SOLICITA UNA COTIZACIÓN PERSONALIZADA (CONTACTO) -->
     <section id="contacto" class="reveal py-20 bg-slate-900 text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1871,12 +1864,5 @@ const projectSlides = [
     </a>
 
 </aside>
-<style>
-  html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-  }
-</style>
-
 </body>
 </html>
