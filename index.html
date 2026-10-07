@@ -68,9 +68,12 @@
 
 
         /* ===== GLOBAL TYPOGRAPHY: QUICKSAND ===== */
-        html, body {
-            font-family: 'Quicksand', sans-serif;
-        }
+       html, body {
+    font-family: 'Quicksand', sans-serif;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+}
 
         /* ===== HERO PAGE-LOAD TEXT ANIMATIONS ===== */
         .page-load-hero {
@@ -271,21 +274,20 @@
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-brand-green selection:text-white w-full max-w-full overflow-x-hidden relative">
 
-    <!-- HEADER & NAVBAR -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="mainHeader">
+<!-- HEADER & NAVBAR CON LOGO IMPACTANTE -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 w-full max-w-full overflow-hidden" id="mainHeader">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
+            <div class="flex items-center justify-between h-24 sm:h-28 md:h-32 w-full gap-4">
                 
-                <!-- BRAND LOGO (EASILY REPLACABLE) -->
-                <!-- REPLACEMENT NOTE: You can swap this logo SVG or image for your own PNG/SVG -->
-              <a href="#inicio" class="flex items-center gap-3 group">
-<div class="h-32 flex items-center">
-    <img src="logo-egotek.png.png" 
-         alt="EGOTEK" 
-         class="h-full w-auto object-contain transition-transform duration-300 hover:scale-105">
-</div></a>
+                <!-- LOGO CON ANCHO EXPANDIDO PARA MAXIMIZAR ESCALA -->
+                <a href="#inicio" class="flex items-center shrink-0 py-2">
+                    <img src="logo-egotek.png.png" 
+                         alt="EGOTEK - Ingeniería Peruana al servicio del Agro" 
+                         class="w-48 sm:w-64 md:w-80 h-auto max-h-24 md:max-h-28 object-contain transition-transform duration-300 hover:scale-105 drop-shadow-sm">
+                </a>
+
                 <!-- DESKTOP NAVIGATION LINKS -->
-                <nav class="hidden md:flex items-center gap-8 font-medium text-slate-700">
+                <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-700 text-base">
                     <a href="#inicio" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Inicio</a>
                     <a href="#nosotros" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Nosotros</a>
                     
@@ -329,8 +331,9 @@
                     <a href="#proyectos" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Proyectos</a>
                     <a href="#contacto" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Contacto</a>
                 </nav>
-                <!-- MOBILE MENU TOGGLE -->
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
+
+                <!-- BOTÓN MENÚ MÓVIL ALINEADO A LA DERECHA -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none shrink-0 border border-slate-200 ml-auto">
                     <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
                 </button>
             </div>
@@ -338,8 +341,8 @@
 
         <!-- MOBILE DROPDOWN MENU -->
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-3 shadow-xl">
-            <a href="#inicio" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Inicio</a>
-            <a href="#nosotros" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Nosotros</a>
+            <a href="#inicio" onclick="closeMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Inicio</a>
+            <a href="#nosotros" onclick="closeMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Nosotros</a>
             <div>
                 <p class="py-2 text-xs font-bold uppercase tracking-wider text-slate-400">Productos</p>
                 <a href="#productos" onclick="switchProductTab('mangueras-hdpe'); closeMobileMenu()" class="block py-1.5 pl-4 text-slate-600">• Mangueras HDPE</a>
@@ -347,8 +350,8 @@
                 <a href="#productos" onclick="switchProductTab('mangueras-duplex'); closeMobileMenu()" class="block py-1.5 pl-4 text-slate-600">• Mangueras Duplex</a>
                 <a href="#productos" onclick="switchProductTab('accesorios-hdpe'); closeMobileMenu()" class="block py-1.5 pl-4 text-slate-600">• Accesorios HDPE</a>
             </div>
-            <a href="#proyectos" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Proyectos</a>
-            <a href="#contacto" class="block py-2 text-slate-700 font-medium hover:text-brand-green">Contacto</a>
+            <a href="#proyectos" onclick="closeMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Proyectos</a>
+            <a href="#contacto" onclick="closeMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-green">Contacto</a>
             <a href="https://wa.me/51955590217?text=Hola%20EGOTEK,%20deseo%20una%20cotizaci%C3%B3n" target="_blank" class="w-full bg-emerald-600 text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 mt-4">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Cotizar por WhatsApp
             </a>
