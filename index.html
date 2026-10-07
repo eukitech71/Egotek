@@ -68,12 +68,9 @@
 
 
         /* ===== GLOBAL TYPOGRAPHY: QUICKSAND ===== */
-       html, body {
-    font-family: 'Quicksand', sans-serif;
-    width: 100% !important;
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-}
+        html, body {
+            font-family: 'Quicksand', sans-serif;
+        }
 
         /* ===== HERO PAGE-LOAD TEXT ANIMATIONS ===== */
         .page-load-hero {
@@ -190,7 +187,6 @@
                 bottom: 14px;
                 gap: 8px;
                 max-width: calc(100vw - 20px);
-                overflow: hidden;
             }
             .floating-contact-cta .cta-whatsapp {
                 min-height: 44px;
@@ -271,23 +267,56 @@
             .reveal, .reveal-left, .reveal-right, .stagger > * { opacity: 1 !important; transform: none !important; }
         }
     </style>
+<style>
+.hero-overlay{background:linear-gradient(100deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.88) 46%,rgba(255,255,255,.2) 100%)!important}
+#inicio::before,#inicio::after{content:"";position:absolute;z-index:1;border-radius:50%;filter:blur(70px);pointer-events:none;opacity:.35}
+#inicio::before{width:340px;height:340px;background:#FF6D00;top:8%;right:6%;animation:blob 9s ease-in-out infinite alternate}
+#inicio::after{width:300px;height:300px;background:#00873E;bottom:4%;left:38%;animation:blob 11s ease-in-out infinite alternate-reverse}
+@keyframes blob{to{transform:translate(-40px,50px) scale(1.2)}}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;background:linear-gradient(90deg,#00873E,#FF6D00)}
+#toTop{position:fixed;right:18px;bottom:96px;width:44px;height:44px;border-radius:50%;background:#0F172A;color:#fff;z-index:80;opacity:0;transform:translateY(16px);pointer-events:none;transition:.3s;box-shadow:0 10px 24px rgba(15,23,42,.25)}
+#toTop.show{opacity:1;transform:none;pointer-events:auto}#toTop:hover{background:#FF6D00;transform:translateY(-3px)}
+#mainHeader.scrolled{box-shadow:0 8px 30px rgba(15,23,42,.1)!important}
+#mainHeader nav>a{position:relative}
+#mainHeader nav>a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:#FF6D00;transition:width .3s}
+#mainHeader nav>a:hover::after,#mainHeader nav>a.active::after{width:100%}
+#mainHeader nav>a.active{color:#00873E}
+[data-rv]{opacity:0}
+[data-rv].in{opacity:1;animation:rise .75s cubic-bezier(.2,.8,.2,1) var(--d,0ms) backwards}
+@keyframes rise{from{opacity:0;transform:translateY(34px) scale(.96)}}
+.tilt{transition:transform .25s ease-out,box-shadow .3s,border-color .3s;will-change:transform}
+.tilt:hover{box-shadow:0 26px 50px -22px rgba(15,23,42,.28)!important;border-color:#FF6D00!important}
+.shadow-xl,.shadow-2xl,.shadow-lg{box-shadow:0 14px 40px -18px rgba(15,23,42,.22)}
+.bg-clip-text.text-transparent{background-size:220% auto;animation:shine 5s ease-in-out infinite alternate}
+@keyframes shine{to{background-position:100% 0}}
+.w-24.h-1{transform-origin:left;animation:grow 1.2s ease both}@keyframes grow{from{transform:scaleX(0)}}
+section:not([id]) .grid>div:hover i{animation:wig .6s}@keyframes wig{25%{transform:rotate(-12deg) scale(1.15)}60%{transform:rotate(10deg) scale(1.15)}}
+.btn-fx{position:relative;overflow:hidden}
+.btn-fx::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-fx:hover::after{transform:translateX(120%)}
+.rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);animation:rp .6s ease-out;pointer-events:none}@keyframes rp{to{transform:scale(4);opacity:0}}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 4px rgba(255,109,0,.15)!important;border-color:#FF6D00!important}
+::selection{background:#FF6D00;color:#fff}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}[data-rv]{opacity:1}}
+</style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-brand-green selection:text-white w-full max-w-full overflow-x-hidden relative">
+<body class="bg-slate-50 font-sans text-slate-800 antialiased selection:bg-brand-green selection:text-white">
 
-<!-- HEADER & NAVBAR CON LOGO IMPACTANTE -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 w-full max-w-full overflow-hidden" id="mainHeader">
+    <!-- HEADER & NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="mainHeader">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-24 sm:h-28 md:h-32 w-full gap-4">
+            <div class="flex items-center justify-between h-20">
                 
-                <!-- LOGO CON ANCHO EXPANDIDO PARA MAXIMIZAR ESCALA -->
-                <a href="#inicio" class="flex items-center shrink-0 py-2">
-                    <img src="logo-egotek.png.png" 
-                         alt="EGOTEK - Ingeniería Peruana al servicio del Agro" 
-                         class="w-48 sm:w-64 md:w-80 h-auto max-h-24 md:max-h-28 object-contain transition-transform duration-300 hover:scale-105 drop-shadow-sm">
-                </a>
-
+                <!-- BRAND LOGO (EASILY REPLACABLE) -->
+                <!-- REPLACEMENT NOTE: You can swap this logo SVG or image for your own PNG/SVG -->
+              <a href="#inicio" class="flex items-center gap-3 group">
+<div class="h-32 flex items-center">
+    <img src="logo-egotek.png.png" 
+         alt="EGOTEK" 
+         class="h-full w-auto object-contain transition-transform duration-300 hover:scale-105">
+</div></a>
                 <!-- DESKTOP NAVIGATION LINKS -->
-                <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-700 text-base">
+                <nav class="hidden md:flex items-center gap-8 font-medium text-slate-700">
                     <a href="#inicio" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Inicio</a>
                     <a href="#nosotros" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Nosotros</a>
                     
@@ -331,9 +360,8 @@
                     <a href="#proyectos" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Proyectos</a>
                     <a href="#contacto" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-green">Contacto</a>
                 </nav>
-
-                <!-- BOTÓN MENÚ MÓVIL ALINEADO A LA DERECHA -->
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none shrink-0 border border-slate-200 ml-auto">
+                <!-- MOBILE MENU TOGGLE -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
                     <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
                 </button>
             </div>
@@ -341,8 +369,8 @@
 
         <!-- MOBILE DROPDOWN MENU -->
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-3 shadow-xl">
-            <a href="#inicio" onclick="closeMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Inicio</a>
-            <a href="#nosotros" onclick="closeMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Nosotros</a>
+            <a href="#inicio" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Inicio</a>
+            <a href="#nosotros" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Nosotros</a>
             <div>
                 <p class="py-2 text-xs font-bold uppercase tracking-wider text-slate-400">Productos</p>
                 <a href="#productos" onclick="switchProductTab('mangueras-hdpe'); closeMobileMenu()" class="block py-1.5 pl-4 text-slate-600">• Mangueras HDPE</a>
@@ -350,8 +378,8 @@
                 <a href="#productos" onclick="switchProductTab('mangueras-duplex'); closeMobileMenu()" class="block py-1.5 pl-4 text-slate-600">• Mangueras Duplex</a>
                 <a href="#productos" onclick="switchProductTab('accesorios-hdpe'); closeMobileMenu()" class="block py-1.5 pl-4 text-slate-600">• Accesorios HDPE</a>
             </div>
-            <a href="#proyectos" onclick="closeMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Proyectos</a>
-            <a href="#contacto" onclick="closeMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-brand-green">Contacto</a>
+            <a href="#proyectos" class="block py-2 text-slate-700 font-medium hover:text-brand-green border-b border-slate-50">Proyectos</a>
+            <a href="#contacto" class="block py-2 text-slate-700 font-medium hover:text-brand-green">Contacto</a>
             <a href="https://wa.me/51955590217?text=Hola%20EGOTEK,%20deseo%20una%20cotizaci%C3%B3n" target="_blank" class="w-full bg-emerald-600 text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 mt-4">
                 <i class="fa-brands fa-whatsapp text-xl"></i> Cotizar por WhatsApp
             </a>
@@ -359,7 +387,7 @@
     </header>
 
     <!-- HERO SECTION (PORTADA) -->
-    <section id="inicio" class="page-load-hero relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900">
+    <section id="inicio" class="page-load-hero relative min-h-screen flex items-center pt-20 overflow-hidden bg-white">
         <!-- REPLACEMENT NOTE: Hero Background Image -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1920&auto=format&fit=crop" 
@@ -372,46 +400,46 @@
             <div class="grid lg:grid-cols-12 gap-12 items-center">
                 
                 <!-- HERO TEXT CONTENT -->
-                <div class="hero-text-content lg:col-span-7 space-y-6 text-white text-center lg:text-left">
+                <div class="hero-text-content lg:col-span-7 space-y-6 text-slate-900 text-center lg:text-left">
 
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight leading-tight">
                         SOLUCIONES PARA LA <br class="hidden sm:inline">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-200 to-yellow-300">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFA040] to-[#FF6D00]">
                             CONDUCCIÓN DE AGUA
                         </span>
                     </h1>
 
-                    <p class="text-base sm:text-xl text-slate-200 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                    <p class="text-base sm:text-xl text-slate-600 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
                         Tuberías HDPE, Mangueras y Accesorios para la agricultura, construcción e industria. Máxima durabilidad, resistencia a alta presión y tecnología de vanguardia.
                     </p>
 
 <!-- HERO CTAS -->
 <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 pt-4">
     <a href="https://wa.me/51955590217?text=Hola%20EGOTEK,%20vengo%20desde%20la%20web%20y%20deseo%20cotizar" target="_blank" rel="noopener" 
-       class="w-full sm:w-auto bg-emerald-600/70 hover:bg-emerald-500 border border-white/30 text-white font-bold px-8 py-4 rounded-xl flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-base backdrop-blur-sm">
+       class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 border border-slate-300 text-white font-bold px-8 py-4 rounded-xl flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-base backdrop-blur-sm">
         <i class="fa-brands fa-whatsapp text-xl leading-none"></i>
         <span>Cotizar por WhatsApp</span>
     </a>
 
     <a href="#productos" 
-       class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-8 py-4 rounded-xl flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-base backdrop-blur-sm">
+       class="w-full sm:w-auto bg-white hover:bg-slate-50 border border-slate-300 text-slate-900 font-bold px-8 py-4 rounded-xl flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-base backdrop-blur-sm">
         <span>Ver productos</span>
         <i class="fa-solid fa-arrow-down text-sm"></i>
     </a>
 </div>
                     <!-- METRICS BADGES -->
-                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-white/10 text-center lg:text-left">
+                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-200 text-center lg:text-left">
                         <div>
                             <p class="text-2xl sm:text-3xl font-extrabold font-heading bg-gradient-to-b from-[#FFA040] to-[#FF6D00] bg-clip-text text-transparent inline-block">100%</p>
-                            <p class="text-xs text-slate-300 font-medium">Material Virgen PE100</p>
+                            <p class="text-xs text-slate-600 font-medium">Material Virgen PE100</p>
                         </div>
                         <div>
                             <p class="text-2xl sm:text-3xl font-extrabold font-heading bg-gradient-to-b from-[#FFA040] to-[#FF6D00] bg-clip-text text-transparent inline-block">PN8 - PN20</p>
-                            <p class="text-xs text-slate-300 font-medium">Rangos de Presión</p>
+                            <p class="text-xs text-slate-600 font-medium">Rangos de Presión</p>
                         </div>
                         <div>
                             <p class="text-2xl sm:text-3xl font-extrabold font-heading bg-gradient-to-b from-[#FFA040] to-[#FF6D00] bg-clip-text text-transparent inline-block">Garantía</p>
-                            <p class="text-xs text-slate-300 font-medium">Resistencia UV y Agro</p>
+                            <p class="text-xs text-slate-600 font-medium">Resistencia UV y Agro</p>
                         </div>
                     </div>
                 </div>
@@ -423,9 +451,9 @@
                         <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-yellow-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
                         
                         <!-- Floating Card -->
-                        <div class="relative bg-slate-900/90 border border-slate-700/80 p-6 rounded-3xl shadow-2xl backdrop-blur-xl text-white">
+                        <div class="relative bg-white border border-slate-200 p-6 rounded-3xl shadow-2xl backdrop-blur-xl text-slate-900">
                             <!-- REPLACEMENT NOTE: Pipeline Showcase Image -->
-                            <div class="overflow-hidden rounded-2xl mb-4 h-56 bg-slate-800 relative">
+                            <div class="overflow-hidden rounded-2xl mb-4 h-56 bg-slate-50 relative">
                                 <img src="Sistema_Riego_Tecnificado.jpg" 
                                      alt="Tuberías HDPE de Alta Densidad" 
                                      class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
@@ -436,11 +464,11 @@
                             <div class="space-y-2">
                                 <span class="text-xs text-brand-yellow font-bold uppercase tracking-wider">Líderes en el Perú</span>
                                 <h3 class="text-xl font-bold font-heading">Sistemas de Riego Tecnificado</h3>
-                                <p class="text-xs text-slate-300 leading-relaxed">
+                                <p class="text-xs text-slate-600 leading-relaxed">
                                     Diseño e ingeniería para conducción de agua en proyectos de gran envergadura.
                                 </p>
                             </div>
-                            <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-emerald-400 font-semibold">
+                            <div class="mt-4 pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-emerald-600 font-semibold">
                                 <span class="flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> Envíos a todo el Perú</span>
                                 <span class="flex items-center gap-1"><i class="fa-solid fa-shield-halved"></i> Calidad EGOTEK</span>
                             </div>
@@ -453,19 +481,19 @@
     </section>
 
 <!-- ===== SECCIÓN DE PRODUCTOS UNIFICADA Y RESPONSIVA ===== -->
-<section id="productos" class="reveal py-12 sm:py-16 lg:py-20 bg-[#0F172A] relative">
+<section id="productos" class="reveal py-12 sm:py-16 lg:py-20 bg-white relative">
     <div class="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- ENCABEZADO DE SECCIÓN -->
         <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-            <span class="inline-block px-4 py-1.5 rounded-md bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider mb-3">
+            <span class="inline-block px-4 py-1.5 rounded-md bg-[#FF6D00] text-white text-xs font-bold uppercase tracking-wider mb-3">
                 Nuestros Productos
             </span>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-white tracking-tight mb-4">
-                Mangueras, tuberías y accesorios <span class="text-emerald-400">HDPE</span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-slate-900 tracking-tight mb-4">
+                Mangueras, tuberías y accesorios <span class="text-emerald-600">HDPE</span>
             </h2>
-            <p class="text-sm sm:text-base lg:text-lg text-slate-300 font-light leading-relaxed">
-                Encuentra la <span class="text-amber-400 font-semibold">solución ideal</span> para cada necesidad de tu <span class="text-emerald-400 font-semibold">proyecto agrícola o industrial</span>.
+            <p class="text-sm sm:text-base lg:text-lg text-slate-600 font-light leading-relaxed">
+                Encuentra la <span class="text-orange-500 font-semibold">solución ideal</span> para cada necesidad de tu <span class="text-emerald-600 font-semibold">proyecto agrícola o industrial</span>.
             </p>
             <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-yellow-500 mx-auto mt-4 rounded-full"></div>
         </div>
@@ -474,14 +502,14 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
             <!-- TARJETA 1: MANGUERAS HDPE -->
-            <div class="bg-[#111C35] border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
+            <div class="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
                 <div>
                     <!-- Contenedor blanco encajado al borde redondeado -->
                     <div class="bg-white rounded-xl sm:rounded-2xl mb-5 flex items-center justify-center h-52 sm:h-60 lg:h-64 overflow-hidden p-2">
                         <img src="Manguera_HDPE.png" alt="Mangueras HDPE" class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300">
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Mangueras HDPE</h3>
-                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Mangueras HDPE</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-light">
                         Flexibles, resistentes y de larga duración. Ideales para maniobra en campo.
                     </p>
                 </div>
@@ -492,13 +520,13 @@
             </div>
 
             <!-- TARJETA 2: MANGUERAS DUPLEX -->
-            <div class="bg-[#111C35] border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
+            <div class="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
                 <div>
                     <div class="bg-white rounded-xl sm:rounded-2xl mb-5 flex items-center justify-center h-52 sm:h-60 lg:h-64 overflow-hidden p-2">
                         <img src="Manguera_Duplex.png" alt="Mangueras Duplex" class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300">
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Mangueras Duplex</h3>
-                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Mangueras Duplex</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-light">
                         Doble capa y alta resistencia para hogar, parcelas o riego continuo.
                     </p>
                 </div>
@@ -509,13 +537,13 @@
             </div>
 
             <!-- TARJETA 3: TUBERÍAS HDPE -->
-            <div class="bg-[#111C35] border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
+            <div class="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
                 <div>
                     <div class="bg-white rounded-xl sm:rounded-2xl mb-5 flex items-center justify-center h-52 sm:h-60 lg:h-64 overflow-hidden p-2">
                         <img src="Tubería_HDPE.png" alt="Tuberías HDPE" class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300">
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Tuberías HDPE</h3>
-                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Tuberías HDPE</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-light">
                         Ideales para la conducción de agua y proyectos hidráulicos de alta demanda.
                     </p>
                 </div>
@@ -526,13 +554,13 @@
             </div>
 
             <!-- TARJETA 4: ACCESORIOS HDPE -->
-            <div class="bg-[#111C35] border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
+            <div class="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
                 <div>
                     <div class="bg-white rounded-xl sm:rounded-2xl mb-5 flex items-center justify-center h-52 sm:h-60 lg:h-64 overflow-hidden p-2">
                         <img src="Accesorios_HDPE.png" alt="Accesorios HDPE" class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300">
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Accesorios HDPE</h3>
-                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                    <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Accesorios HDPE</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-light">
                         Conexiones seguras, codos, tees, acoples y válvulas de alto rendimiento.
                     </p>
                 </div>
@@ -546,21 +574,21 @@
     </div>
 </section>
 <!-- ===== SECCIÓN: SECTORES DE APLICACIÓN ===== -->
-<section id="sectores" class="reveal py-16 lg:py-20 bg-[#0F172A] relative border-t border-slate-800">
+<section id="sectores" class="reveal py-16 lg:py-20 bg-slate-50 relative border-t border-slate-200">
     <div class="max-w-[1800px] mx-auto px-6 sm:px-10 lg:px-16 w-full">
         
         <!-- ENCABEZADO DE SECCIÓN CON TÍTULO EN BLANCO Y DEGRADADO NARANJA -->
         <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-4">
                 Sectores de Aplicación
             </span>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white tracking-tight mb-4 flex flex-col gap-1 items-center">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-slate-900 tracking-tight mb-4 flex flex-col gap-1 items-center">
                 <span>Industrias a las que</span>
                 <span class="bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600 bg-clip-text text-transparent">
                     Atendemos
                 </span>
             </h2>
-            <p class="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+            <p class="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
                 Soluciones de alta ingeniería para minería, agricultura, saneamiento y proyectos de infraestructura.
             </p>
             <div class="w-24 h-1 bg-gradient-to-r from-orange-500 to-amber-400 mx-auto mt-5 rounded-full"></div>
@@ -570,59 +598,59 @@
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6">
 
             <!-- 1. MINERÍA -->
-            <div class="bg-[#111C35] border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
-                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-slate-950 transition-colors duration-300">
+            <div class="bg-white border border-slate-200 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center mb-4 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
                     <i class="fa-solid fa-industry text-2xl"></i>
                 </div>
-                <span class="text-white font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Minería</span>
+                <span class="text-slate-900 font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Minería</span>
             </div>
 
             <!-- 2. SANEAMIENTO -->
-            <div class="bg-[#111C35] border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
-                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors duration-300">
+            <div class="bg-white border border-slate-200 hover:border-emerald-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center mb-4 text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
                     <i class="fa-solid fa-droplet text-2xl"></i>
                 </div>
-                <span class="text-white font-bold text-sm sm:text-base group-hover:text-emerald-400 transition-colors">Saneamiento</span>
+                <span class="text-slate-900 font-bold text-sm sm:text-base group-hover:text-emerald-400 transition-colors">Saneamiento</span>
             </div>
 
             <!-- 3. CONSTRUCCIÓN -->
-            <div class="bg-[#111C35] border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
-                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-slate-950 transition-colors duration-300">
+            <div class="bg-white border border-slate-200 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center mb-4 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
                     <i class="fa-solid fa-building-user text-2xl"></i>
                 </div>
-                <span class="text-white font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Construcción</span>
+                <span class="text-slate-900 font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Construcción</span>
             </div>
 
             <!-- 4. AGRICULTURA -->
-            <div class="bg-[#111C35] border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
-                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors duration-300">
+            <div class="bg-white border border-slate-200 hover:border-emerald-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center mb-4 text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
                     <i class="fa-solid fa-seedling text-2xl"></i>
                 </div>
-                <span class="text-white font-bold text-sm sm:text-base group-hover:text-emerald-400 transition-colors">Agricultura</span>
+                <span class="text-slate-900 font-bold text-sm sm:text-base group-hover:text-emerald-400 transition-colors">Agricultura</span>
             </div>
 
             <!-- 5. PESCA -->
-            <div class="bg-[#111C35] border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
-                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-slate-950 transition-colors duration-300">
+            <div class="bg-white border border-slate-200 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center mb-4 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
                     <i class="fa-solid fa-water text-2xl"></i>
                 </div>
-                <span class="text-white font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Pesca</span>
+                <span class="text-slate-900 font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Pesca</span>
             </div>
 
             <!-- 6. OIL & GAS -->
-            <div class="bg-[#111C35] border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
-                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors duration-300">
+            <div class="bg-white border border-slate-200 hover:border-emerald-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center mb-4 text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
                     <i class="fa-solid fa-fire-flame-simple text-2xl"></i>
                 </div>
-                <span class="text-white font-bold text-sm sm:text-base group-hover:text-emerald-400 transition-colors">Oil &amp; Gas</span>
+                <span class="text-slate-900 font-bold text-sm sm:text-base group-hover:text-emerald-400 transition-colors">Oil &amp; Gas</span>
             </div>
 
             <!-- 7. INDUSTRIAL -->
-            <div class="bg-[#111C35] border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
-                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-slate-950 transition-colors duration-300">
+            <div class="bg-white border border-slate-200 hover:border-orange-500/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:-translate-y-1 group shadow-lg">
+                <div class="w-14 h-14 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center mb-4 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
                     <i class="fa-solid fa-gears text-2xl"></i>
                 </div>
-                <span class="text-white font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Industrial</span>
+                <span class="text-slate-900 font-bold text-sm sm:text-base group-hover:text-orange-400 transition-colors">Industrial</span>
             </div>
 
         </div>
@@ -1115,7 +1143,7 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
                             <div class="text-white">
                                 <span class="bg-brand-yellow text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">Tecnología de Riego</span>
-                                <p class="text-sm font-semibold">Instalaciones de asporsión y termofusión con garantía de presión.</p>
+                                <p class="text-sm font-semibold">Instalaciones de aspersión y termofusión con garantía de presión.</p>
                             </div>
                         </div>
                     </div>
@@ -1127,7 +1155,7 @@
     </section>
 
     <!-- SECTION 5: NUESTROS PROYECTOS (MATCHING CAPTURE 3 BOTTOM) -->
-    <section id="proyectos" class="reveal py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="proyectos" class="reveal py-20 bg-white text-slate-900 relative overflow-hidden">
         
         <!-- Subtle Nature Glow -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -1141,25 +1169,25 @@
                     <h2 class="text-3xl sm:text-4xl font-extrabold font-heading tracking-tight leading-tight">
                         Nuestros proyectos
                     </h2>
-                    <p class="text-slate-300 text-base leading-relaxed font-light">
+                    <p class="text-slate-600 text-base leading-relaxed font-light">
                         Hemos trabajado en diversos proyectos agrícolas e industriales a nivel nacional, contribuyendo de manera activa al crecimiento y eficiencia de nuestros clientes.
                     </p>
                     <div class="pt-4 flex items-center gap-6">
                         <div>
-                            <p class="text-3xl font-black font-heading text-emerald-400">+500</p>
-                            <p class="text-xs text-slate-400">Proyectos Ejecutados</p>
+                            <p class="text-3xl font-black font-heading text-emerald-600">+500</p>
+                            <p class="text-xs text-slate-500">Proyectos Ejecutados</p>
                         </div>
                         <div class="w-px h-10 bg-slate-700"></div>
                         <div>
-                            <p class="text-3xl font-black font-heading text-emerald-400">100%</p>
-                            <p class="text-xs text-slate-400">Cobertura Nacional</p>
+                            <p class="text-3xl font-black font-heading text-emerald-600">100%</p>
+                            <p class="text-xs text-slate-500">Cobertura Nacional</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- RIGHT CAROUSEL / SLIDER SHOWCASE -->
                 <div class="lg:col-span-7">
-                    <div class="relative bg-slate-800 rounded-3xl p-3 border border-slate-700 shadow-2xl">
+                    <div class="relative bg-slate-50 rounded-3xl p-3 border border-slate-200 shadow-2xl">
                         
                         <!-- SLIDE IMAGE CONTAINER -->
                         <div class="relative h-80 sm:h-96 rounded-2xl overflow-hidden" id="projectSlider">
@@ -1181,8 +1209,8 @@
                         <div class="flex items-center justify-between mt-4 px-2">
                             <div class="flex gap-2" id="projectDots">
                                 <span onclick="setSlide(0)" class="w-3 h-3 rounded-full bg-emerald-500 cursor-pointer"></span>
-                                <span onclick="setSlide(1)" class="w-3 h-3 rounded-full bg-slate-600 cursor-pointer"></span>
-                                <span onclick="setSlide(2)" class="w-3 h-3 rounded-full bg-slate-600 cursor-pointer"></span>
+                                <span onclick="setSlide(1)" class="w-3 h-3 rounded-full bg-slate-300 cursor-pointer"></span>
+                                <span onclick="setSlide(2)" class="w-3 h-3 rounded-full bg-slate-300 cursor-pointer"></span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <button onclick="prevSlide()" class="w-10 h-10 rounded-full bg-slate-700 hover:bg-emerald-600 text-white flex items-center justify-center transition-colors">
@@ -1274,14 +1302,14 @@
     </section>
 
     <!-- SECTION 7: SOLICITA UNA COTIZACIÓN PERSONALIZADA (CONTACTO) -->
-    <section id="contacto" class="reveal py-20 bg-slate-900 text-white relative">
+    <section id="contacto" class="reveal py-20 bg-slate-50 text-slate-900 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-5xl font-extrabold font-heading tracking-tight">
                     Solicita una <span class="bg-gradient-to-b from-[#FFA040] to-[#FF6D00] bg-clip-text text-transparent inline-block">Cotización Personalizada</span>
                 </h2>
-                <p class="mt-3 text-slate-300 text-base sm:text-lg">
+                <p class="mt-3 text-slate-600 text-base sm:text-lg">
                     Completa los datos de tu requerimiento y recibe atención inmediata por parte de nuestros ingenieros especialistas.
                 </p>
             </div>
@@ -1289,19 +1317,19 @@
             <div class="grid lg:grid-cols-12 gap-12 max-w-6xl mx-auto items-start">
                 
                 <!-- CALCULATOR / FORM -->
-                <div class="lg:col-span-7 bg-slate-800/90 p-8 rounded-3xl border border-slate-700 shadow-2xl backdrop-blur-md">
+                <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-slate-200 shadow-2xl backdrop-blur-md">
                     <form id="quoteForm" onsubmit="generateWhatsAppQuote(event)" class="space-y-5">
                         
                         <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Nombre Completo o Empresa *</label>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Nombre Completo o Empresa *</label>
                             <input type="text" id="quoteName" required placeholder="Ej: Juan Pérez / Agrícola El Sol" 
-                                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm">
+                                   class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm">
                         </div>
 
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Producto de Interés *</label>
-                                <select id="quoteProduct" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-green transition-colors text-sm">
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Producto de Interés *</label>
+                                <select id="quoteProduct" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-green transition-colors text-sm">
                                     <option value="Manguera HDPE">Manguera HDPE</option>
                                     <option value="Tubería HDPE">Tubería HDPE</option>
                                     <option value="Manguera Duplex">Manguera Duplex</option>
@@ -1310,8 +1338,8 @@
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Diámetro Requerido</label>
-                                <select id="quoteDiameter" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-green transition-colors text-sm">
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Diámetro Requerido</label>
+                                <select id="quoteDiameter" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-green transition-colors text-sm">
                                     <option value="1/2' - 16 mm">1/2" - 16 mm</option>
                                     <option value="3/4' - 25 mm">3/4" - 25 mm</option>
                                     <option value="1' - 32 mm">1" - 32 mm</option>
@@ -1325,22 +1353,22 @@
 
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Cantidad (Metros / Piezas)</label>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Cantidad (Metros / Piezas)</label>
                                 <input type="number" id="quoteQuantity" min="1" placeholder="Ej: 500" 
-                                       class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm">
+                                       class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm">
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Ciudad / Proyecto</label>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Ciudad / Proyecto</label>
                                 <input type="text" id="quoteLocation" placeholder="Ej: Ica, Piura, Arequipa..." 
-                                       class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm">
+                                       class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Detalles Adicionales</label>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Detalles Adicionales</label>
                             <textarea id="quoteMessage" rows="3" placeholder="Especificaciones de presión (PN10, PN16), accesorios requeridos, etc." 
-                                      class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm resize-none"></textarea>
+                                      class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-brand-green transition-colors text-sm resize-none"></textarea>
                         </div>
 
                         <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-4 rounded-xl shadow-xl hover:shadow-emerald-900/50 transition-all flex items-center justify-center gap-3 text-base">
@@ -1351,42 +1379,53 @@
                     </form>
                 </div>
 
-                <!-- DIRECT CONTACT INFO -->
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl shrink-0">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-base">Dirección</h4>
-                                <p class="text-xs text-slate-300 mt-1">Mza. B Lote. 05 Asc. Asc. Industrias Unidas Micro y Pequeña Empresa de Carabayllo, Mz. B, Lt. 05 Lima - Lima - Carabayllo</p>
-                            </div>
+<!-- DIRECT CONTACT INFO -->
+            <div class="lg:col-span-5 space-y-6">
+                
+                <!-- Tarjeta Dirección -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base">Dirección</h4>
+                            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                Mza. B Lote. 05 Asc. Asc. Industrias Unidas Micro y Pequeña Empresa de Carabayllo, Mz. B, Lt. 05 Lima - Lima - Carabayllo
+                            </p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-brand-yellow flex items-center justify-center text-2xl shrink-0">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-base">Central de Ventas</h4>
-                                <p class="text-xs text-slate-300 mt-1">+51 955 590 217 - +51 900 515 926 - +51 977 681 961</p>
-                                <p class="text-xs text-slate-400 mt-0.5">Lunes a Viernes: 8:00 am - 6:00 pm Sábado 8:00 am - 4:00 pm </p>
-                            </div>
+                <!-- Tarjeta Central de Ventas -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base">Central de Ventas</h4>
+                            <p class="text-xs text-slate-800 font-semibold mt-1">
+                                +51 955 590 217 &nbsp;•&nbsp; +51 900 515 926 &nbsp;•&nbsp; +51 977 681 961
+                            </p>
+                            <p class="text-xs text-slate-500 mt-1">
+                                Lunes a Viernes: 8:00 am - 6:00 pm &nbsp;|&nbsp; Sábado: 8:00 am - 4:00 pm
+                            </p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl shrink-0">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-base">Correo Electrónico</h4>
-                                <p class="text-xs text-slate-300 mt-1">ventas@egotek.pe / contacto@egotek.pe</p>
-                            </div>
+                <!-- Tarjeta Correo Electrónico -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-base">Correo Electrónico</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                ventas@egotek.pe &nbsp;/&nbsp; contacto@egotek.pe
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1761,7 +1800,7 @@ const projectSlides = [
             // Update dots
             const dots = document.getElementById('projectDots').children;
             for (let i = 0; i < dots.length; i++) {
-                dots[i].className = i === currentSlide ? 'w-3 h-3 rounded-full bg-emerald-500 cursor-pointer' : 'w-3 h-3 rounded-full bg-slate-600 cursor-pointer';
+                dots[i].className = i === currentSlide ? 'w-6 h-3 rounded-full bg-orange-500 cursor-pointer transition-all' : 'w-3 h-3 rounded-full bg-slate-300 cursor-pointer transition-all';
             }
         }
 
@@ -1868,5 +1907,24 @@ const projectSlides = [
     </a>
 
 </aside>
+<script>
+(()=>{const $=(q,r=document)=>[...r.querySelectorAll(q)],H=document.getElementById('mainHeader');
+const bar=document.createElement('div');bar.id='progress';document.body.append(bar);
+const up=document.createElement('button');up.id='toTop';up.setAttribute('aria-label','Subir');up.innerHTML='<i class="fa-solid fa-arrow-up"></i>';up.onclick=()=>scrollTo({top:0,behavior:'smooth'});document.body.append(up);
+const links=$('#mainHeader nav a[href^="#"]'),secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const spy=()=>{const d=document.documentElement;bar.style.width=scrollY/(d.scrollHeight-innerHeight)*100+'%';up.classList.toggle('show',scrollY>600);H.classList.toggle('scrolled',scrollY>20);
+let cur='';secs.forEach(x=>{if(x&&x.getBoundingClientRect().top<150)cur=x.id});links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur))};
+addEventListener('scroll',spy,{passive:true});spy();
+const cards='#productos .grid>div,#sectores .grid>div,section:not([id]) .grid>div,#nosotros .grid>div';
+$(cards).forEach((el,i)=>{el.setAttribute('data-rv','');el.style.setProperty('--d',(i%7)*90+'ms');el.classList.add('tilt');
+ el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(800px) rotateX(${-y*7}deg) rotateY(${x*7}deg) translateY(-6px)`});
+ el.addEventListener('mouseleave',()=>el.style.transform='')});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+$('[data-rv]').forEach(el=>io.observe(el));
+$('#proyectos p.font-black').forEach(p=>{const m=p.textContent.match(/^(\D*)(\d+)(\D*)$/);if(!m)return;const co=new IntersectionObserver(es=>{if(!es[0].isIntersecting)return;co.disconnect();const t0=performance.now();(function f(t){const k=Math.min((t-t0)/1600,1);p.textContent=m[1]+Math.round(m[2]*(1-(1-k)**3))+m[3];if(k<1)requestAnimationFrame(f)})(t0)});co.observe(p)});
+$('#inicio a.rounded-xl,#productos button,#quoteForm button,#mainHeader a.rounded-xl').forEach(b=>{b.classList.add('btn-fx');b.addEventListener('click',e=>{const r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),s=document.createElement('span');s.className='rip';s.style.cssText=`width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`;b.append(s);setTimeout(()=>s.remove(),600)})});
+const hero=document.getElementById('heroBgImage');addEventListener('scroll',()=>{if(scrollY<innerHeight&&hero)hero.style.translate='0 '+scrollY*.12+'px'},{passive:true});
+})();
+</script>
 </body>
 </html>
